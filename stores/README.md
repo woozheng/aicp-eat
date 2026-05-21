@@ -23,13 +23,24 @@ pip install pandas  # or whatever you need
 
 
 ## Eat your own
-```bash
-python eater/eat.py pandas        # eat the whole library
-python eater/eat.py mylib /path   # eat from source
-```
-## Want specific functions only? Throw eater/eat.py to AI:
 
-"Use this template, generate a script for just pandas read_csv and to_csv"
+
+But honestly? Don't just eat what we ate. Eat what YOU want.
+
+You're a Python developer. You know exactly which 10 functions you actually use.
+The 2000+ APIs are just to show you it's possible. Your real treasure is the handful of libraries you import every single day.
+
+### Here's the real move:
+Take eater/eat.py, throw it to any AI, and say:
+```text
+"Use this template. Generate a plugin for just these three functions: scipy.optimize.minimize, sklearn.ensemble.RandomForestClassifier, and PIL.Image.filter. Don't eat the whole library. Just these."
+```
+The AI reads the script, understands the pattern, and generates exactly what you need. You don't need to understand how eat.py works. You just need to know what you want to eat.
+
+### That's the power.
+We gave you 2000+ APIs to prove it works. But the real move is you, telling AI what to eat, and AI doing it in seconds.
+
+Go eat your own favorites. That's where the magic is.
 
 ## Polish descriptions
 

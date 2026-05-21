@@ -39,7 +39,9 @@ Return
 Open http://localhost:9000, test all APIs in the workbench.
 
 
-## Go calls pandas. Rust calls numpy. Frontend calls LangChain. Any language, HTTP everything.
+## [Why eat the entire Python ecosystem? →](/docs/Journey.md)
+
+Go calls pandas. Rust calls numpy. Frontend calls LangChain. Any language, HTTP everything.
 
 ```text
 pandas    → 59 APIs

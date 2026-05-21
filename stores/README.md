@@ -1,4 +1,3 @@
-markdown
 # Plugin Store
 
 Pre-eaten plugin packs. Download, unzip, drop into `plugins/`. Done.

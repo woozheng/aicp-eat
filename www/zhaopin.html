@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能招聘自动化系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #333;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header h1 {
+            color: #165DFF;
+            margin-bottom: 8px;
+        }
+
+        .tab-nav {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: #fff;
+            padding: 12px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            background: #f1f5f9;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+
+        .tab-btn.active {
+            background: #165DFF;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+            background: white;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            margin-bottom: 20px;
+        }
+
+        .tab-content.show {
+            display: block;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        textarea {
+            width: 100%;
+            height: 160px;
+            padding: 12px 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            resize: vertical;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border-radius: 8px;
+            border: none;
+            background: #165DFF;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background: #0E42D2;
+        }
+
+        .btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            min-height: 120px;
+            max-height: 480px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            font-family: monospace;
+            font-size: 13px;
+            line-height: 1.6;
+            border: 1px solid #e2e8f0;
+        }
+
+        .history {
+            background: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .history h3 {
+            margin-bottom: 12px;
+            color: #333;
+        }
+
+        .history-item {
+            padding: 8px 12px;
+            border-left: 3px solid #165DFF;
+            background: #f8fafc;
+            margin-bottom: 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .loading {
+            color: #165DFF;
+            font-weight: 500;
+        }
+
+        .error {
+            color: #f43f5e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>智能招聘自动化系统</h1>
+        <p>简历解析｜岗位匹配｜面试出题｜录用建议｜邮件生成 · 全流程自动化</p>
+    </div>
+
+    <div class="tab-nav">
+        <button class="tab-btn active" data-tab="parse">简历解析</button>
+        <button class="tab-btn" data-tab="match">岗位匹配</button>
+        <button class="tab-btn" data-tab="questions">面试问题</button>
+        <button class="tab-btn" data-tab="decision">录用建议</button>
+        <button class="tab-btn" data-tab="invite">邮件生成</button>
+    </div>
+
+    <!-- 1. 简历解析 -->
+    <div class="tab-content show" id="parse">
+        <div class="section">
+            <label>简历原文（纯文本 / Markdown）</label>
+            <textarea id="parse-input" placeholder="请粘贴候选人简历..."></textarea>
+            <button class="btn" onclick="runParse()">调用简历解析</button>
+            <div class="result-box" id="parse-result"></div>
+        </div>
+    </div>
+
+    <!-- 2. 岗位匹配 -->
+    <div class="tab-content" id="match">
+        <div class="section">
+            <label>岗位描述</label>
+            <textarea id="match-job" placeholder="请输入JD..."></textarea>
+            <label>简历数据（自动从上一步填充）</label>
+            <textarea id="match-input" readonly></textarea>
+            <button class="btn" onclick="runMatch()">调用匹配评估</button>
+            <div class="result-box" id="match-result"></div>
+        </div>
+    </div>
+
+    <!-- 3. 面试问题 -->
+    <div class="tab-content" id="questions">
+        <div class="section">
+            <label>输入数据（自动填充）</label>
+            <textarea id="ques-input" readonly></textarea>
+            <button class="btn" onclick="runQuestions()">生成面试题</button>
+            <div class="result-box" id="ques-result"></div>
+        </div>
+    </div>
+
+    <!-- 4. 录用建议 -->
+    <div class="tab-content" id="decision">
+        <div class="section">
+            <label>综合数据（自动填充）</label>
+            <textarea id="dec-input" readonly></textarea>
+            <button class="btn" onclick="runDecision()">生成录用建议</button>
+            <div class="result-box" id="dec-result"></div>
+        </div>
+    </div>
+
+    <!-- 5. 邮件生成 -->
+    <div class="tab-content" id="invite">
+        <div class="section">
+            <label>决策数据（自动填充）</label>
+            <textarea id="inv-input" readonly></textarea>
+            <button class="btn" onclick="runInvite()">生成邮件</button>
+            <div class="result-box" id="inv-result"></div>
+        </div>
+    </div>
+
+    <div class="history">
+        <h3>请求历史</h3>
+        <div id="history-list"></div>
+    </div>
+
+    <script>
+        const API_BASE = "http://127.0.0.1:9000/api/recruit";
+        let history = [];
+
+        // Tab 切换
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('show'));
+                btn.classList.add('active');
+                document.getElementById(btn.dataset.tab).classList.add('show');
+            });
+        });
+
+        // 格式化JSON
+        function formatJson(obj) {
+            if (typeof obj !== 'object' || obj === null) return obj;
+            return JSON.stringify(obj, null, 2);
+        }
+
+        // API请求
+        async function callApi(url, data, resultEl, pushHistory = true) {
+            const btn = document.activeElement;
+            if (btn) btn.disabled = true;
+            const resBox = document.getElementById(resultEl);
+            resBox.textContent = "⏳ 加载中...";
+
+            try {
+                const resp = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+                const result = await resp.json();
+                resBox.textContent = formatJson(result);
+
+                if (pushHistory) {
+                    history.unshift({
+                        time: new Date().toLocaleTimeString(),
+                        url: url.split('/').pop(),
+                        ok: true
+                    });
+                    updateHistory();
+                }
+                return result;
+            } catch (err) {
+                resBox.textContent = "❌ 请求失败：" + err.message;
+                history.unshift({
+                    time: new Date().toLocaleTimeString(),
+                    url: url.split('/').pop(),
+                    ok: false,
+                    err: err.message
+                });
+                updateHistory();
+                return null;
+            } finally {
+                if (btn) btn.disabled = false;
+            }
+        }
+
+        // 更新历史
+        function updateHistory() {
+            const list = document.getElementById('history-list');
+            list.innerHTML = history.slice(0, 10).map(h => `
+                <div class="history-item">${h.time}｜${h.url}｜${h.ok ? '成功' : '<span class="error">失败</span>'}</div>
+            `).join('');
+        }
+
+        // ================== 插件调用 ==================
+        async function runParse() {
+            const content = document.getElementById('parse-input').value;
+            const data = { content };
+            const res = await callApi(`${API_BASE}/parse`, data, 'parse-result');
+            if (res) {
+                document.getElementById('match-input').value = formatJson(res);
+            }
+        }
+
+        async function runMatch() {
+            const job = document.getElementById('match-job').value;
+            const prevText = document.getElementById('match-input').value || '{}';
+            const prev = JSON.parse(prevText);
+            const data = { ...prev, job_description: job };
+            const res = await callApi(`${API_BASE}/match`, data, 'match-result');
+            if (res) {
+                document.getElementById('ques-input').value = formatJson(res);
+            }
+        }
+
+        async function runQuestions() {
+            const text = document.getElementById('ques-input').value || '{}';
+            const data = JSON.parse(text);
+            const res = await callApi(`${API_BASE}/questions`, data, 'ques-result');
+            if (res) {
+                document.getElementById('dec-input').value = formatJson(res);
+            }
+        }
+
+        async function runDecision() {
+            const text = document.getElementById('dec-input').value || '{}';
+            const data = JSON.parse(text);
+            const res = await callApi(`${API_BASE}/decision`, data, 'dec-result');
+            if (res) {
+                document.getElementById('inv-input').value = formatJson(res);
+            }
+        }
+
+        async function runInvite() {
+            const text = document.getElementById('inv-input').value || '{}';
+            const data = JSON.parse(text);
+            await callApi(`${API_BASE}/invite`, data, 'inv-result');
+        }
+    </script>
+</body>
+</html>

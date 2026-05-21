@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AICP 工作台</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, sans-serif; background: #1a1a2e; color: #eee; padding: 20px; }
+        
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .header h1 { color: #00d4ff; font-size: 24px; }
+        .lang-btn { padding: 8px 16px; border-radius: 20px; border: 1px solid #00d4ff; background: transparent; color: #00d4ff; cursor: pointer; font-size: 13px; }
+        .lang-btn:hover { background: #00d4ff; color: #1a1a2e; }
+        
+        .tabs { display: flex; gap: 8px; margin-bottom: 20px; flex-wrap: wrap; }
+        .tab { padding: 10px 20px; background: #16213e; border-radius: 8px; cursor: pointer; font-size: 14px; white-space: nowrap; }
+        .tab.active { background: #00d4ff; color: #1a1a2e; font-weight: bold; }
+        .panel { display: none; }
+        .panel.active { display: block; }
+        
+        .card-area { display: flex; flex-direction: column; gap: 12px; }
+        .card-area textarea, .card-area input { width: 100%; padding: 12px; border-radius: 8px; border: none; background: #16213e; color: #fff; font-size: 14px; resize: vertical; outline: none; }
+        .card-area input:focus, .card-area textarea:focus { border: 1px solid #00d4ff; }
+        .card-area button { padding: 12px 24px; border-radius: 8px; border: none; background: #00d4ff; color: #1a1a2e; font-weight: bold; cursor: pointer; align-self: flex-start; font-size: 14px; }
+        .result-box { background: #16213e; padding: 16px; border-radius: 8px; margin-top: 12px; white-space: pre-wrap; font-size: 13px; display: none; }
+        .hint { background: #2a1a1a; border: 1px solid #e94560; padding: 10px 14px; border-radius: 8px; margin-top: 8px; font-size: 13px; color: #e94560; display: none; }
+        
+        .pages-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px; }
+        .page-card { background: #16213e; padding: 20px; border-radius: 8px; cursor: pointer; transition: transform 0.2s; }
+        .page-card:hover { transform: translateY(-2px); background: #1e2a4a; }
+        .page-card h3 { color: #00d4ff; margin-bottom: 8px; }
+        .page-card p { color: #888; font-size: 13px; }
+        
+        .api-search { width: 100%; padding: 10px 14px; border-radius: 8px; border: 1px solid #333; background: #16213e; color: #fff; font-size: 14px; margin-bottom: 12px; outline: none; }
+        .api-search:focus { border-color: #00d4ff; }
+        .api-grid { display: grid; gap: 12px; }
+        .api-card { background: #16213e; padding: 16px; border-radius: 8px; }
+        .api-card.hidden { display: none; }
+        .api-card h3 { color: #00d4ff; margin-bottom: 8px; }
+        .api-card p { color: #888; font-size: 13px; margin-bottom: 8px; }
+        .api-card textarea { width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #333; background: #0f3460; color: #fff; font-size: 12px; resize: vertical; }
+        .api-card button { padding: 8px 16px; border-radius: 4px; border: none; background: #409eff; color: #fff; cursor: pointer; margin-top: 8px; font-size: 13px; }
+        .api-card .response { background: #0a0a1a; padding: 8px; border-radius: 4px; margin-top: 8px; font-size: 12px; max-height: 200px; overflow-y: auto; white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🚀 AICP <span data-lang="workbench">工作台</span></h1>
+        <button class="lang-btn" onclick="toggleLang()" data-lang="switch">English</button>
+    </div>
+    
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('dev')">🤖 <span data-lang="dev">生成应用</span></div>
+        <div class="tab" onclick="switchTab('pages')">📄 <span data-lang="pages">页面</span></div>
+        <div class="tab" onclick="switchTab('apis')">📦 <span data-lang="apis">API 测试</span></div>
+    </div>
+
+    <div id="dev-panel" class="panel active">
+        <div class="card-area">
+            <textarea id="devInput" data-lang-placeholder="devPlaceholder" placeholder="描述你想要的应用，例如：写一个数据分析工具，带前端页面..."></textarea>
+            <button onclick="generatePlugin()">✨ <span data-lang="generate">生成应用</span></button>
+            <div id="devResult" class="result-box"></div>
+            <div id="devHint" class="hint" data-lang="restart">⚠️ 新应用需要重启引擎：Ctrl+C 后重新运行 python main.py</div>
+        </div>
+    </div>
+
+    <div id="pages-panel" class="panel">
+        <div class="pages-grid" id="pagesList"></div>
+    </div>
+
+    <div id="apis-panel" class="panel">
+        <input type="text" class="api-search" id="apiSearch" data-lang-placeholder="searchPlaceholder" placeholder="搜索 API..." oninput="filterAPIs()">
+        <div class="api-grid" id="apiList"></div>
+    </div>
+
+    <script>
+        const LANG = {
+            zh: {
+                workbench: '工作台',
+                switch: 'English',
+                dev: '生成应用',
+                pages: '页面',
+                apis: 'API 测试',
+                devPlaceholder: '描述你想要的应用，例如：写一个数据分析工具，带前端页面...',
+                generate: '生成应用',
+                generating: '⏳ 正在生成...',
+                test: '测试',
+                testing: '⏳...',
+                error: '❌ 请求失败: ',
+                loadError: '加载失败',
+                restart: '⚠️ 新应用需要重启引擎：Ctrl+C 后重新运行 python main.py',
+                searchPlaceholder: '搜索 API...',
+                noPages: '暂无页面，用 AI 生成第一个吧！',
+                openPage: '点击打开'
+            },
+            en: {
+                workbench: 'Workbench',
+                switch: '中文',
+                dev: 'Create App',
+                pages: 'Pages',
+                apis: 'API Test',
+                devPlaceholder: 'Describe the application you want, e.g.: Write a data analysis tool with a frontend page..',
+                generate: 'Create App',
+                generating: '⏳ Generating...',
+                test: 'Test',
+                testing: '⏳...',
+                error: '❌ Request failed: ',
+                loadError: 'Load failed',
+                restart: '⚠️ New app requires engine restart: Ctrl+C then run python main.py again',
+                searchPlaceholder: 'Search APIs...',
+                noPages: 'No pages yet. Create one with AI!',
+                openPage: 'Click to open'
+            }
+        };
+
+        let currentLang = 'zh';
+
+        function toggleLang() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            document.querySelectorAll('[data-lang]').forEach(el => {
+                const key = el.getAttribute('data-lang');
+                if (LANG[currentLang][key]) el.textContent = LANG[currentLang][key];
+            });
+            document.querySelectorAll('[data-lang-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-lang-placeholder');
+                if (LANG[currentLang][key]) el.placeholder = LANG[currentLang][key];
+            });
+            loadPages();
+            loadAPIs();
+        }
+
+        function t(key) { return LANG[currentLang][key] || key; }
+
+        function switchTab(name) {
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            const idx = {dev:0, pages:1, apis:2}[name];
+            document.querySelectorAll('.tab')[idx].classList.add('active');
+            document.getElementById(`${name}-panel`).classList.add('active');
+            if (name === 'pages') loadPages();
+            if (name === 'apis') loadAPIs();
+        }
+
+        async function generatePlugin() {
+            const input = document.getElementById('devInput').value.trim();
+            if (!input) return;
+
+            const result = document.getElementById('devResult');
+            const hint = document.getElementById('devHint');
+            result.style.display = 'block';
+            result.textContent = t('generating');
+            hint.style.display = 'none';
+
+            try {
+                const res = await fetch('/api/dev', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({content: input})
+                });
+                const data = await res.json();
+                result.textContent = JSON.stringify(data, null, 2);
+                hint.style.display = 'block';
+            } catch(e) {
+                result.textContent = t('error') + e.message;
+            }
+        }
+
+        async function loadPages() {
+            try {
+                const res = await fetch('/api/pages');
+                const data = await res.json();
+                const pages = data.pages || [];
+                document.getElementById('pagesList').innerHTML = pages.length > 0
+                    ? pages.map(p => `
+                        <div class="page-card" onclick="window.open('${p.url}', '_blank')">
+                            <h3>${p.path}</h3>
+                            <p>${t('openPage')}</p>
+                            <p style="color:#666;font-size:12px;margin-top:4px;">${(p.size / 1024).toFixed(1)} KB</p>
+                        </div>
+                    `).join('')
+                    : `<p style="color:#888;">${t('noPages')}</p>`;
+            } catch(e) {
+                document.getElementById('pagesList').innerHTML = `<p>${t('loadError')}</p>`;
+            }
+        }
+
+        async function loadAPIs() {
+            try {
+                const res = await fetch('/api/list');
+                const data = await res.json();
+                document.getElementById('apiList').innerHTML = data.apis.map(api => `
+                    <div class="api-card" data-search="${api.route} ${api.help ? api.help.description : ''}">
+                        <h3>${api.route}</h3>
+                        ${api.help ? `<p>${api.help.description}</p>` : ''}
+                        <textarea id="input_${encodeURI(api.route)}" rows="2">${api.help ? JSON.stringify(api.help.input) : '{"content": "test"}'}</textarea>
+                        <button id="btn_${encodeURI(api.route)}" onclick="testAPI('${api.route}')">▶ ${t('test')}</button>
+                        <pre class="response" id="resp_${encodeURI(api.route)}"></pre>
+                    </div>
+                `).join('');
+            } catch(e) {
+                document.getElementById('apiList').innerHTML = `<p>${t('loadError')}</p>`;
+            }
+        }
+
+        function filterAPIs() {
+            const query = document.getElementById('apiSearch').value.toLowerCase();
+            document.querySelectorAll('.api-card').forEach(card => {
+                const text = card.getAttribute('data-search') || '';
+                card.classList.toggle('hidden', query && !text.toLowerCase().includes(query));
+            });
+        }
+
+        async function testAPI(route) {
+            const input = document.getElementById(`input_${encodeURI(route)}`).value;
+            const respDiv = document.getElementById(`resp_${encodeURI(route)}`);
+            respDiv.textContent = t('testing');
+            try {
+                const res = await fetch(route, {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: input
+                });
+                const data = await res.json();
+                respDiv.textContent = JSON.stringify(data, null, 2);
+            } catch(e) {
+                respDiv.textContent = t('error') + e.message;
+            }
+        }
+
+        loadPages();
+        loadAPIs();
+    </script>
+</body>
+</html>

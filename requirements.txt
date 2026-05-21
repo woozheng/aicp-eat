@@ -1,0 +1,4 @@
+# requirements.txt
+aiohttp>=3.9
+openai>=1.0
+pyyaml>=6.0

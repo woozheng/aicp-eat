@@ -3,7 +3,7 @@
 ## Eat Every Python Library → HTTP API.
 
 ```bash
-pip install aicp-eat
+pip install aicp
 # Set your API key in aicp.yaml, or:
 export AGGREGATOR_API_KEY="sk-your-key"  # Windows: setx AGGREGATOR_API_KEY "sk-your-key"
 aicp
@@ -26,15 +26,18 @@ python eater/eat_langchain.py
 
 ```text
 pandas    → 59 APIs
-numpy     → 100+ APIs
+numpy     → 92 APIs
 LangChain → 999 APIs
-sklearn   → 301 APIs
+sklearn   → 300+ APIs
 scipy     → 107 APIs
 PIL       → 471 APIs
 requests  → 9 APIs
 ─────────────────────
 2000+ APIs. HTTP.
+
 ```
+[Plugin Store →](stores/README.md)
+
 ## AI reads help(). AI orchestrates. 80 lines engine.
 ---
 ## Dependencies

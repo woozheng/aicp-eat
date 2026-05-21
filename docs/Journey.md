@@ -64,7 +64,7 @@ AutoGen spent years building multi-agent coordination. AICP does it with a JSON 
 
 Why would I eat something that can be replaced by one field?
 
-Think I'm arrogant? [ Read the protocol →](docs/AICP_Protocol_v3.md)
+Think I'm arrogant? [ Read the protocol →](AICP_Protocol_v3.md)
 Want to see what real character group chat looks like? [Visit the LiveShow Archive →](https://live.biopoiesis.net)
 
 ## Why HTTP

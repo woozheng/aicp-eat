@@ -59,7 +59,7 @@ and more. Come eat.
 [Plugin Store →](stores/README.md)
 
 ---
-## ## AI reads help(). AI orchestrates. 80 lines engine.AI-Generated Experiments 
+## AI reads help(). AI orchestrates. 80 lines engine.AI-Generated Experiments 
 
 AI read the AICP protocol and generated complete systems across seven domains. Each from a single human sentence.
 

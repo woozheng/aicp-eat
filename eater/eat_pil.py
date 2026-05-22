@@ -1,5 +1,5 @@
-# eater/eat_langchain.py — LangChain 专享版（最终修复）
-"""Deep scan langchain_community — all sub-modules, all callables, with parameter signatures."""
+# eater/eat_pil.py — PIL 专享版（最终修复：用 repr 绕过 JSON 转义）
+"""Deep scan PIL/Pillow — all sub-modules, all callables, with parameter signatures."""
 
 import importlib
 import pkgutil
@@ -7,7 +7,7 @@ import inspect
 import json
 from pathlib import Path
 
-LIBRARY = "langchain_community"
+LIBRARY = "PIL"
 OUTPUT_FILE = Path("plugins") / f"{LIBRARY}.py"
 
 def deep_scan():
@@ -70,10 +70,12 @@ def generate():
             params = {}
         func_details.append({"name": f"{m}.{n}", "params": params})
     
+    # 用 repr 生成 Python 原生列表，绕过 JSON 转义
     func_names_py = repr(func_names[:200])
     func_details_py = repr(func_details[:200])
     
-    example_name = func_names[0] if func_names else "chat_models.ChatOpenAI"
+    # 取第一个有参数的函数做示例
+    example_name = func_names[0] if func_names else "Image.open"
     example_params = func_details[0]["params"] if func_details else {}
     parts = example_name.split(".")
     example_fn = parts[-1]
@@ -101,7 +103,7 @@ def help():
         "functions": funcs,
         "function_details": details,
         "how_to_call": {{
-            "description": "LangChain functions live in sub-modules. Use 'function' for the function name and 'module' for its parent module. Check 'function_details' for parameter names.",
+            "description": "PIL functions live in sub-modules. Use 'function' for the function name and 'module' for its parent module. Check 'function_details' for parameter names.",
             "example_payload": {json.dumps(example_payload, ensure_ascii=False)},
             "curl_example": {json.dumps(f"curl -X POST /api/{LIBRARY} -d '{json.dumps(example_payload)}'", ensure_ascii=False)}
         }}

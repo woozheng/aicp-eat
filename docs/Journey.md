@@ -1,46 +1,51 @@
 ## My Journey
 
-I first devoured LangChain — 999 APIs. Spectacular.
+I started where everyone starts: I wanted to learn LangChain. But the complexity was overwhelming. Classes within classes. Wrappers around wrappers. 999 APIs, each with its own abstraction, its own lifecycle, its own way of doing things. I spent weeks just trying to understand how to call a single function.
 
-Then I tested one: WikipediaLoader. It just calls the `wikipedia` library underneath.
+So I thought: what if I just exposed everything over HTTP? Let AI deal with the complexity. I wrote the first eat.py — it scanned AST, extracted function signatures, generated parameter templates, and created plugin files. One file per function. plugins/pandas/read_csv.py, plugins/pandas/to_csv.py, plugins/langchain/WikipediaLoader.py. Hundreds of them.
 
-Another: ChatOpenAI. It just calls the `openai` library.
+It worked. 999 LangChain APIs, all callable over HTTP. I felt pretty good.
+Then I rewrote the core protocol.  [Version 3.0](docs/AICP_Protocol_v3.md).. I showed it to AI. And AI came back with this:
 
-I stopped. Why did I eat 999 wrapper classes?
+```python
+async def execute(envelop, agent):
+    import numpy
+    result = numpy.any_function_you_want(**envelop.payload["args"])
+    envelop.payload["result"] = str(result)
+    return envelop
+```    
+Three lines. No AST. No templates. No parameter definitions. Just getattr + **args.
+Suddenly, a library became a single file. Not hundreds.
 
-I ate the bottom instead:
+```text
+plugins/
+├── pandas.py              → 102 functions
+├── numpy.py               → 460 functions
+├── PIL.py                 → 664 functions
+└── langchain_community.py → 7512 functions
+────────────────────────────────────────
+Total: 8738 functions. 4 files.
+```
+I was eating everything. 7512 LangChain functions in one file. But then I realized something.
+Why am I eating LangChain at all?
+ChatOpenAI just calls the openai library. WikipediaLoader just calls the wikipedia library. 7512 wrapper functions, and most of them are just calling something simpler underneath.
+So I ate the bottom instead:
 
 ```bash
 python eater/eat.py requests
 python eater/eat.py wikipedia
 python eater/eat.py openai
 ```
+Standard libraries. Clean APIs. Functions that do exactly what they say. No wrappers. No abstractions. Just code that works.
+AI reads their help(). Orchestrates. 3 APIs become infinite combinations. LangChain took 999 classes to do the same thing. Bottom libraries need 3 HTTP APIs. AI orchestrates. Done.
+LangChain is still there. 7512 functions, every loader and chain and vector store, all callable over HTTP. When you need it, it works. But the real power? It's in the bottom. Requests. Wikipedia. OpenAI. Pandas. Numpy. PIL. The libraries that do one thing well.
 
-AI reads their help(). Orchestrates. 3 APIs become infinite combinations.
-
-LangChain took 999 classes to do the same thing.
-Bottom libraries need 3 HTTP APIs.
-AI orchestrates. Done.
-
-The 999 plugins? Not deleted. In `stores/`.
-
-LangChain made Python libraries easier to use. That's real value.
-It just turned out: when AI orchestrates, going direct is even easier.
-
-So I kept them. As a reminder.
-Eat the wrappers. Eat the bottom. Both work.
-See what suits you.
-
-Why I Didn't Eat AutoGen.
-
+Eat the wrappers. Eat the bottom. Both work. See what suits you.
+## Why I Didn't Eat AutoGen.
 AutoGen. CrewAI. Camel. MetaGPT. All the multi-agent frameworks.
-
 They build manager agents. Group chat classes. Turn-taking controllers. 
-
 Thousands of lines of code to decide who speaks next.
-
 I didn't eat them. Not because they're hard to eat. Because they're not worth eating.
-
 AICP does multi-agent with one field:
 
 ```json
@@ -55,15 +60,10 @@ AICP does multi-agent with one field:
 }
 ```
 The message carries its own turn. No manager. No scheduler. No central control. 
-
 Agents receive, check the pointer, advance it, speak or remember, 
-
 then the message flows on — information stimulates itself.
-
 AutoGen spent years building multi-agent coordination. AICP does it with a JSON field.
-
 Why would I eat something that can be replaced by one field?
-
 Think I'm arrogant? [ Read the protocol →](AICP_Protocol_v3.md)
 Want to see what real character group chat looks like? [Visit the LiveShow Archive →](https://live.biopoiesis.net)
 

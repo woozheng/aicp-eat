@@ -9,14 +9,29 @@ pip install aicp-eat
 
 ```bash
 pip install pandas
-python eater/eat.py pandas        # → 59 APIs
+python eater/eat.py pandas            # Standard library — feed it to eat.py
 
 pip install numpy
-python eater/eat.py numpy          # → 92 APIs
+python eater/eat.py numpy             # Standard library — feed it to eat.py
+
+pip install pillow
+python eater/eat_pil.py               # Nested modules — throw it to AI, let it generate a custom script
 
 pip install langchain-community
-python eater/eat_langchain.py      # → 999 APIs
+python eater/eat_langchain.py         # Nested modules — throw it to AI, let it generate a custom script
 ```
+
+```text
+plugins/
+├── pandas.py              → 102 functions
+├── numpy.py               → 460 functions
+├── PIL.py                 → 664 functions
+└── langchain_community.py → 7512 functions
+────────────────────────────────────────
+Total: 8738 functions. 4 files.
+```
+and more. Come eat.
+
 ## Run
 
 ```bash
@@ -26,7 +41,9 @@ export AGGREGATOR_API_KEY="sk-your-key"  # Windows: setx AGGREGATOR_API_KEY "sk-
 aicp
 ```
 ```bash
-curl http://localhost:9000/api/pandas/array -d '{"params":{"data":[1,2,3,4,5]}}'
+curl -X POST http://localhost:9000/api/pandas \
+  -H "Content-Type: application/json" \
+  -d '{"function":"array","args":{"data":[1,2,3,4,5]}}'
 ```
 Return
 
@@ -36,30 +53,14 @@ Return
   "source": "pandas"
 }
 ```
-Open http://localhost:9000, test all APIs in the workbench.
+Open http://localhost:9000, browse the API menu at /api/pandas, /api/numpy, /api/PIL, /api/langchain_community. Each one has a help() with all functions listed.
 
 
 ## [Why eat the entire Python ecosystem? →](/docs/Journey.md)
 
 Go calls pandas. Rust calls numpy. Frontend calls LangChain. Any language, HTTP everything.
 
-```text
-pandas    → 59 APIs
-numpy     → 92 APIs
-LangChain → 999 APIs
-sklearn   → 300+ APIs
-scipy     → 107 APIs
-PIL       → 471 APIs
-requests  → 9 APIs
-─────────────────────
-2000+ APIs. HTTP.
-```
-and more. Come eat.
-
-[Plugin Store →](stores/README.md)
-
----
-## AI reads help(). AI orchestrates. 80 lines engine.AI-Generated Experiments 
+##  AI reads help(). AI orchestrates. 80 lines engine.AI-Generated Experiments 
 
 AI read the AICP protocol and generated complete systems across seven domains. Each from a single human sentence.
 

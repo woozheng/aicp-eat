@@ -7,8 +7,8 @@ import uuid
 from pathlib import Path
 from aiohttp import web
 
-from .. import core                    # 原来是 import core
-from ..core import Envelop, engine_route  # 原来是 from core import .
+import core
+from core import Envelop, engine_route
 
 
 class Gateway:
@@ -147,11 +147,27 @@ class Gateway:
             except Exception:
                 body = {}
 
+            # 拆 meta, function, args
+            if isinstance(body, dict):
+                meta = body.get("meta", {})
+                args = body.get("args", {})
+                func_name = body.get("function", "") or meta.get("function", "")
+                intent = body.get("intent", "API_CALL")
+            else:
+                meta = {}
+                args = {}
+                func_name = ""
+                intent = "API_CALL"
+
+            if func_name:
+                meta["function"] = func_name
+
             env = Envelop(
                 sender="http",
                 receiver=path,
-                intent=body.get("intent", "API_CALL") if isinstance(body, dict) else "API_CALL",
-                payload=body if isinstance(body, dict) else {"content": str(body)},
+                intent=intent,
+                payload={"args": args} if args else body if isinstance(body, dict) else {"content": str(body)},
+                meta=meta,
                 channel_id=f"http:{path}",
             )
             env.message_id = request_id
@@ -173,6 +189,18 @@ class Gateway:
 
     async def _handle_api_get(self, request):
         path = request.match_info["path"]
+        
+        # 如果插件有 help()，返回它
+        if path in core.plugins:
+            try:
+                mod_name = f"plugins.{path.replace('/', '.')}"
+                mod = __import__(mod_name, fromlist=["help"])
+                if hasattr(mod, "help"):
+                    help_data = mod.help()
+                    return web.json_response(help_data)
+            except Exception:
+                pass
+        
         return web.json_response({
             "route": f"/api/{path}",
             "methods": ["POST"],

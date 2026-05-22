@@ -58,8 +58,23 @@ and more. Come eat.
 
 [Plugin Store →](stores/README.md)
 
-## AI reads help(). AI orchestrates. 80 lines engine.
 ---
+## ## AI reads help(). AI orchestrates. 80 lines engine.AI-Generated Experiments 
+
+AI read the AICP protocol and generated complete systems across seven domains. Each from a single human sentence.
+
+| Experiment | Domain | Human Said |
+|---|---|---|
+| [aicp-os-kernel](https://github.com/woozheng/aicp-os-kernel) | OS Kernel | Microkernel OS |
+| [aicp-quantum](https://github.com/woozheng/aicp-quantum) | Quantum Computing | Quantum computing simulator |
+| [aicp-protein](https://github.com/woozheng/aicp-protein) | Protein Folding | Protein folding |
+| [aicp-llm-trainer](https://github.com/woozheng/aicp-llm-trainer) | LLM Training | LLM distributed training |
+| [aicp-riemann](https://github.com/woozheng/aicp-riemann) | Riemann Hypothesis | How to approach and verify the Riemann Hypothesis |
+| [aicp-ai-chip](https://github.com/woozheng/aicp-ai-chip) | AI Chip | AI intelligent chip computing system |
+| [aicp-raw-experiments](https://github.com/woozheng/aicp-raw-experiments) | Raw Experiments | More raw experiments |
+
+[→ More about the protocol](/docs/AICP_Protocol_v3.md)
+
 ## Dependencies
 
 - Python >= 3.10

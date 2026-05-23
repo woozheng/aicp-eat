@@ -26,7 +26,7 @@ plugins/
 ├── pandas.py              → 102 functions
 ├── numpy.py               → 460 functions
 ├── PIL.py                 → 664 functions
-└── langchain_community.py → 7512 functions
+└── langchain_community.py → 7512 functions   ← new number every day. chaos.
 ────────────────────────────────────────
 Total: 8738 functions. 4 files.
 ```
@@ -63,6 +63,8 @@ Go calls pandas. Rust calls numpy. Frontend calls LangChain. Any language, HTTP 
 ##  AI reads help(). AI orchestrates. 80 lines engine.AI-Generated Experiments 
 
 AI read the AICP protocol and generated complete systems across seven domains. Each from a single human sentence.
+
+> **Want to generate systems like these? → [Start here](https://github.com/woozheng/aicp)**
 
 | Experiment | Domain | Human Said |
 |---|---|---|

@@ -60,6 +60,20 @@ Open http://localhost:9000, browse the API menu at /api/pandas, /api/numpy, /api
 
 Go calls pandas. Rust calls numpy. Frontend calls LangChain. Any language, HTTP everything.
 
+## Eat Everything to Http
+
+| Language | Status | Engine |
+|----------|--------|--------|
+| Python | ✅ Eaten | [aicp-eat](https://github.com/woozheng/aicp-eat) |
+| Go | 🪑 Feed AI | Drop the protocol. AI writes it. |
+| Rust | 🪑 Feed AI | Drop the protocol. AI writes it. |
+| JavaScript | 🪑 Feed AI | Drop the protocol. AI writes it. |
+| Java | 🪑 Feed AI | Drop the protocol. AI writes it. |
+| Zig | 🪑 Feed AI | Drop the protocol. AI writes it. |
+| ... | 🪑 Feed AI | You get it. |
+
+**Feed the protocol to AI. 30 seconds. Engine done. Go eat.**
+
 ##  AI reads help(). AI orchestrates. 80 lines engine.AI-Generated Experiments 
 
 AI read the AICP protocol and generated complete systems across seven domains. Each from a single human sentence.

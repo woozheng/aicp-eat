@@ -65,7 +65,7 @@ Go calls pandas. Rust calls numpy. Frontend calls LangChain. Any language, HTTP 
 | Language | Status | Engine |
 |----------|--------|--------|
 | Python | ✅ Eaten | [aicp-eat](https://github.com/woozheng/aicp-eat) |
-| Go | 🪑 Feed AI | Drop the protocol. AI writes it. |
+| Go | ✅ Eaten | [go/](./go/) | gin, gorm, mux, uuid, logrus |
 | Rust | 🪑 Feed AI | Drop the protocol. AI writes it. |
 | JavaScript | 🪑 Feed AI | Drop the protocol. AI writes it. |
 | Java | 🪑 Feed AI | Drop the protocol. AI writes it. |

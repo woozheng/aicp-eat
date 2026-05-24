@@ -1,0 +1,295 @@
+[
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "rustc_minor_version",
+    "params": []
+  },
+  {
+    "name": "nop_reserve",
+    "params": [
+      {
+        "name": "_seq : T . pat",
+        "type": "_seq : T . ty"
+      },
+      {
+        "name": "_n : usize . pat",
+        "type": "_n : usize . ty"
+      }
+    ]
+  },
+  {
+    "name": "check_overflow",
+    "params": [
+      {
+        "name": "secs : u64 . pat",
+        "type": "secs : u64 . ty"
+      },
+      {
+        "name": "nanos : u32 . pat",
+        "type": "nanos : u32 . ty"
+      }
+    ]
+  },
+  {
+    "name": "check_overflow",
+    "params": [
+      {
+        "name": "secs : u64 . pat",
+        "type": "secs : u64 . ty"
+      },
+      {
+        "name": "nanos : u32 . pat",
+        "type": "nanos : u32 . ty"
+      }
+    ]
+  },
+  {
+    "name": "unit_only",
+    "params": [
+      {
+        "name": "t : T . pat",
+        "type": "t : T . ty"
+      }
+    ]
+  },
+  {
+    "name": "map_as_enum",
+    "params": [
+      {
+        "name": "map : A . pat",
+        "type": "map : A . ty"
+      }
+    ]
+  },
+  {
+    "name": "from_bounds",
+    "params": [
+      {
+        "name": "iter : & I . pat",
+        "type": "iter : & I . ty"
+      }
+    ]
+  },
+  {
+    "name": "cautious",
+    "params": [
+      {
+        "name": "hint : Option < usize > . pat",
+        "type": "hint : Option < usize > . ty"
+      }
+    ]
+  },
+  {
+    "name": "helper",
+    "params": [
+      {
+        "name": "bounds : (usize , Option < usize >) . pat",
+        "type": "bounds : (usize , Option < usize >) . ty"
+      }
+    ]
+  },
+  {
+    "name": "from_utf8_lossy",
+    "params": [
+      {
+        "name": "bytes : & [u8] . pat",
+        "type": "bytes : & [u8] . ty"
+      }
+    ]
+  },
+  {
+    "name": "from_utf8_lossy",
+    "params": [
+      {
+        "name": "bytes : & [u8] . pat",
+        "type": "bytes : & [u8] . ty"
+      }
+    ]
+  },
+  {
+    "name": "format_u8",
+    "params": [
+      {
+        "name": "mut n : u8 . pat",
+        "type": "mut n : u8 . ty"
+      },
+      {
+        "name": "out : & mut [u8] . pat",
+        "type": "out : & mut [u8] . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_format_u8",
+    "params": []
+  },
+  {
+    "name": "iterator_len_hint",
+    "params": [
+      {
+        "name": "iter : & I . pat",
+        "type": "iter : & I . ty"
+      }
+    ]
+  },
+  {
+    "name": "missing_field",
+    "params": [
+      {
+        "name": "field : & 'static str . pat",
+        "type": "field : & 'static str . ty"
+      }
+    ]
+  },
+  {
+    "name": "borrow_cow_str",
+    "params": [
+      {
+        "name": "deserializer : D . pat",
+        "type": "deserializer : D . ty"
+      }
+    ]
+  },
+  {
+    "name": "borrow_cow_bytes",
+    "params": [
+      {
+        "name": "deserializer : D . pat",
+        "type": "deserializer : D . ty"
+      }
+    ]
+  },
+  {
+    "name": "content_as_str",
+    "params": [
+      {
+        "name": "content : & 'a Content < 'de > . pat",
+        "type": "content : & 'a Content < 'de > . ty"
+      }
+    ]
+  },
+  {
+    "name": "content_clone",
+    "params": [
+      {
+        "name": "content : & Content < 'de > . pat",
+        "type": "content : & Content < 'de > . ty"
+      }
+    ]
+  },
+  {
+    "name": "content_unexpected",
+    "params": [
+      {
+        "name": "content : & 'a Content < 'de > . pat",
+        "type": "content : & 'a Content < 'de > . ty"
+      }
+    ]
+  },
+  {
+    "name": "visit_content_seq",
+    "params": [
+      {
+        "name": "content : Vec < Content < 'de > > . pat",
+        "type": "content : Vec < Content < 'de > > . ty"
+      },
+      {
+        "name": "visitor : V . pat",
+        "type": "visitor : V . ty"
+      }
+    ]
+  },
+  {
+    "name": "visit_content_map",
+    "params": [
+      {
+        "name": "content : Vec < (Content < 'de > , Content < 'de >) > . pat",
+        "type": "content : Vec < (Content < 'de > , Content < 'de >) > . ty"
+      },
+      {
+        "name": "visitor : V . pat",
+        "type": "visitor : V . ty"
+      }
+    ]
+  },
+  {
+    "name": "visit_content_seq_ref",
+    "params": [
+      {
+        "name": "content : & 'a [Content < 'de >] . pat",
+        "type": "content : & 'a [Content < 'de >] . ty"
+      },
+      {
+        "name": "visitor : V . pat",
+        "type": "visitor : V . ty"
+      }
+    ]
+  },
+  {
+    "name": "visit_content_map_ref",
+    "params": [
+      {
+        "name": "content : & 'a [(Content < 'de > , Content < 'de >)] . pat",
+        "type": "content : & 'a [(Content < 'de > , Content < 'de >)] . ty"
+      },
+      {
+        "name": "visitor : V . pat",
+        "type": "visitor : V . ty"
+      }
+    ]
+  },
+  {
+    "name": "flat_map_take_entry",
+    "params": [
+      {
+        "name": "entry : & mut Option < (Content < 'de > , Content < 'de >) > . pat",
+        "type": "entry : & mut Option < (Content < 'de > , Content < 'de >) > . ty"
+      },
+      {
+        "name": "recognized : & [& str] . pat",
+        "type": "recognized : & [& str] . ty"
+      }
+    ]
+  },
+  {
+    "name": "constrain",
+    "params": [
+      {
+        "name": "t : & T . pat",
+        "type": "t : & T . ty"
+      }
+    ]
+  },
+  {
+    "name": "serialize_tagged_newtype",
+    "params": [
+      {
+        "name": "serializer : S . pat",
+        "type": "serializer : S . ty"
+      },
+      {
+        "name": "type_ident : & 'static str . pat",
+        "type": "type_ident : & 'static str . ty"
+      },
+      {
+        "name": "variant_ident : & 'static str . pat",
+        "type": "variant_ident : & 'static str . ty"
+      },
+      {
+        "name": "tag : & 'static str . pat",
+        "type": "tag : & 'static str . ty"
+      },
+      {
+        "name": "variant_name : & 'static str . pat",
+        "type": "variant_name : & 'static str . ty"
+      },
+      {
+        "name": "value : & T . pat",
+        "type": "value : & T . ty"
+      }
+    ]
+  }
+]

@@ -1,0 +1,2354 @@
+[
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "benchmark",
+    "params": [
+      {
+        "name": "name : & 'static str . pat",
+        "type": "name : & 'static str . ty"
+      }
+    ]
+  },
+  {
+    "name": "install_rewrk",
+    "params": []
+  },
+  {
+    "name": "ensure_rewrk_is_installed",
+    "params": []
+  },
+  {
+    "name": "on_ci",
+    "params": []
+  },
+  {
+    "name": "to_bytes",
+    "params": [
+      {
+        "name": "body : Body . pat",
+        "type": "body : Body . ty"
+      },
+      {
+        "name": "limit : usize . pat",
+        "type": "limit : usize . ty"
+      }
+    ]
+  },
+  {
+    "name": "traits",
+    "params": []
+  },
+  {
+    "name": "traits",
+    "params": []
+  },
+  {
+    "name": "socket_addr",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "ConnectInfo (addr) : ConnectInfo < SocketAddr > . pat",
+        "type": "ConnectInfo (addr) : ConnectInfo < SocketAddr > . ty"
+      }
+    ]
+  },
+  {
+    "name": "custom",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "ConnectInfo (addr) : ConnectInfo < MyConnectInfo > . pat",
+        "type": "ConnectInfo (addr) : ConnectInfo < MyConnectInfo > . ty"
+      }
+    ]
+  },
+  {
+    "name": "mock_connect_info",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "ConnectInfo (addr) : ConnectInfo < SocketAddr > . pat",
+        "type": "ConnectInfo (addr) : ConnectInfo < SocketAddr > . ty"
+      }
+    ]
+  },
+  {
+    "name": "both_mock_and_real_connect_info",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "ConnectInfo (addr) : ConnectInfo < SocketAddr > . pat",
+        "type": "ConnectInfo (addr) : ConnectInfo < SocketAddr > . ty"
+      }
+    ]
+  },
+  {
+    "name": "parse_forwarded",
+    "params": [
+      {
+        "name": "headers : & HeaderMap . pat",
+        "type": "headers : & HeaderMap . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_client",
+    "params": []
+  },
+  {
+    "name": "host_as_body",
+    "params": [
+      {
+        "name": "Host (host) : Host . pat",
+        "type": "Host (host) : Host . ty"
+      }
+    ]
+  },
+  {
+    "name": "host_header",
+    "params": []
+  },
+  {
+    "name": "x_forwarded_host_header",
+    "params": []
+  },
+  {
+    "name": "x_forwarded_host_precedence_over_host_header",
+    "params": []
+  },
+  {
+    "name": "uri_host",
+    "params": []
+  },
+  {
+    "name": "forwarded_parsing",
+    "params": []
+  },
+  {
+    "name": "header_map",
+    "params": [
+      {
+        "name": "values : & [(HeaderName , & str)] . pat",
+        "type": "values : & [(HeaderName , & str)] . ty"
+      }
+    ]
+  },
+  {
+    "name": "set_matched_path_for_request",
+    "params": [
+      {
+        "name": "id : RouteId . pat",
+        "type": "id : RouteId . ty"
+      },
+      {
+        "name": "route_id_to_path : & HashMap < RouteId , Arc < str > > . pat",
+        "type": "route_id_to_path : & HashMap < RouteId , Arc < str > > . ty"
+      },
+      {
+        "name": "extensions : & mut http :: Extensions . pat",
+        "type": "extensions : & mut http :: Extensions . ty"
+      }
+    ]
+  },
+  {
+    "name": "append_nested_matched_path",
+    "params": [
+      {
+        "name": "matched_path : & Arc < str > . pat",
+        "type": "matched_path : & Arc < str > . ty"
+      },
+      {
+        "name": "extensions : & http :: Extensions . pat",
+        "type": "extensions : & http :: Extensions . ty"
+      }
+    ]
+  },
+  {
+    "name": "extracting_on_handler",
+    "params": []
+  },
+  {
+    "name": "extracting_on_handler_in_nested_router",
+    "params": []
+  },
+  {
+    "name": "extracting_on_handler_in_deeply_nested_router",
+    "params": []
+  },
+  {
+    "name": "cannot_extract_nested_matched_path_in_middleware",
+    "params": []
+  },
+  {
+    "name": "extract_matched_path",
+    "params": [
+      {
+        "name": "matched_path : Option < MatchedPath > . pat",
+        "type": "matched_path : Option < MatchedPath > . ty"
+      },
+      {
+        "name": "req : Request < B > . pat",
+        "type": "req : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "can_extract_nested_matched_path_in_middleware_using_nest",
+    "params": []
+  },
+  {
+    "name": "extract_matched_path",
+    "params": [
+      {
+        "name": "matched_path : Option < MatchedPath > . pat",
+        "type": "matched_path : Option < MatchedPath > . ty"
+      },
+      {
+        "name": "req : Request < B > . pat",
+        "type": "req : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "cannot_extract_nested_matched_path_in_middleware_via_extension",
+    "params": []
+  },
+  {
+    "name": "assert_no_matched_path",
+    "params": [
+      {
+        "name": "req : Request < B > . pat",
+        "type": "req : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "can_extract_nested_matched_path_in_middleware_via_extension_using_nest",
+    "params": []
+  },
+  {
+    "name": "assert_matched_path",
+    "params": [
+      {
+        "name": "req : Request < B > . pat",
+        "type": "req : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "can_extract_nested_matched_path_in_middleware_on_nested_router",
+    "params": []
+  },
+  {
+    "name": "extract_matched_path",
+    "params": [
+      {
+        "name": "matched_path : MatchedPath . pat",
+        "type": "matched_path : MatchedPath . ty"
+      },
+      {
+        "name": "req : Request < B > . pat",
+        "type": "req : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "can_extract_nested_matched_path_in_middleware_on_nested_router_via_extension",
+    "params": []
+  },
+  {
+    "name": "extract_matched_path",
+    "params": [
+      {
+        "name": "req : Request < B > . pat",
+        "type": "req : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "extracting_on_nested_handler",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "path : Option < MatchedPath > . pat",
+        "type": "path : Option < MatchedPath > . ty"
+      }
+    ]
+  },
+  {
+    "name": "doesnt_panic_if_router_called_from_wildcard_route",
+    "params": []
+  },
+  {
+    "name": "cant_extract_in_fallback",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "path : Option < MatchedPath > . pat",
+        "type": "path : Option < MatchedPath > . ty"
+      },
+      {
+        "name": "req : Request . pat",
+        "type": "req : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "has_content_type",
+    "params": [
+      {
+        "name": "headers : & HeaderMap . pat",
+        "type": "headers : & HeaderMap . ty"
+      },
+      {
+        "name": "expected_content_type : & mime :: Mime . pat",
+        "type": "expected_content_type : & mime :: Mime . ty"
+      }
+    ]
+  },
+  {
+    "name": "consume_body",
+    "params": []
+  },
+  {
+    "name": "status_code_from_multer_error",
+    "params": [
+      {
+        "name": "err : & multer :: Error . pat",
+        "type": "err : & multer :: Error . ty"
+      }
+    ]
+  },
+  {
+    "name": "parse_boundary",
+    "params": [
+      {
+        "name": "headers : & HeaderMap . pat",
+        "type": "headers : & HeaderMap . ty"
+      }
+    ]
+  },
+  {
+    "name": "content_type_with_encoding",
+    "params": []
+  },
+  {
+    "name": "handle",
+    "params": [
+      {
+        "name": "mut multipart : Multipart . pat",
+        "type": "mut multipart : Multipart . ty"
+      }
+    ]
+  },
+  {
+    "name": "_multipart_from_request_limited",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "_ : Multipart . pat",
+        "type": "_ : Multipart . ty"
+      }
+    ]
+  },
+  {
+    "name": "body_too_large",
+    "params": []
+  },
+  {
+    "name": "handle",
+    "params": [
+      {
+        "name": "mut multipart : Multipart . pat",
+        "type": "mut multipart : Multipart . ty"
+      }
+    ]
+  },
+  {
+    "name": "one_level_of_nesting",
+    "params": []
+  },
+  {
+    "name": "one_level_of_nesting_with_trailing_slash",
+    "params": []
+  },
+  {
+    "name": "two_levels_of_nesting",
+    "params": []
+  },
+  {
+    "name": "two_levels_of_nesting_with_trailing_slash",
+    "params": []
+  },
+  {
+    "name": "nested_at_root",
+    "params": []
+  },
+  {
+    "name": "deeply_nested_from_root",
+    "params": []
+  },
+  {
+    "name": "in_fallbacks",
+    "params": []
+  },
+  {
+    "name": "in_middleware",
+    "params": []
+  },
+  {
+    "name": "middleware",
+    "params": [
+      {
+        "name": "nested_path : NestedPath . pat",
+        "type": "nested_path : NestedPath . ty"
+      },
+      {
+        "name": "req : Request . pat",
+        "type": "req : Request . ty"
+      },
+      {
+        "name": "next : Next . pat",
+        "type": "next : Next . ty"
+      }
+    ]
+  },
+  {
+    "name": "create_url_params",
+    "params": [
+      {
+        "name": "values : I . pat",
+        "type": "values : I . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_parse_single_value",
+    "params": []
+  },
+  {
+    "name": "test_parse_seq",
+    "params": []
+  },
+  {
+    "name": "test_parse_seq_tuple_string_string",
+    "params": []
+  },
+  {
+    "name": "test_parse_seq_tuple_string_parse",
+    "params": []
+  },
+  {
+    "name": "test_parse_struct",
+    "params": []
+  },
+  {
+    "name": "test_parse_struct_ignoring_additional_fields",
+    "params": []
+  },
+  {
+    "name": "test_parse_tuple_ignoring_additional_fields",
+    "params": []
+  },
+  {
+    "name": "test_parse_map",
+    "params": []
+  },
+  {
+    "name": "test_wrong_number_of_parameters_error",
+    "params": []
+  },
+  {
+    "name": "test_parse_error_at_key_error",
+    "params": []
+  },
+  {
+    "name": "test_parse_error_at_key_error_multiple",
+    "params": []
+  },
+  {
+    "name": "test_parse_error_at_index_error",
+    "params": []
+  },
+  {
+    "name": "test_parse_error_error",
+    "params": []
+  },
+  {
+    "name": "test_unsupported_type_error_nested_data_structure",
+    "params": []
+  },
+  {
+    "name": "test_parse_seq_tuple_unsupported_key_type",
+    "params": []
+  },
+  {
+    "name": "test_parse_seq_wrong_tuple_length",
+    "params": []
+  },
+  {
+    "name": "test_parse_seq_seq",
+    "params": []
+  },
+  {
+    "name": "extracting_url_params",
+    "params": []
+  },
+  {
+    "name": "extracting_url_params_multiple_times",
+    "params": []
+  },
+  {
+    "name": "percent_decoding",
+    "params": []
+  },
+  {
+    "name": "supports_128_bit_numbers",
+    "params": []
+  },
+  {
+    "name": "wildcard",
+    "params": []
+  },
+  {
+    "name": "captures_dont_match_empty_path",
+    "params": []
+  },
+  {
+    "name": "captures_match_empty_inner_segments",
+    "params": []
+  },
+  {
+    "name": "captures_match_empty_inner_segments_near_end",
+    "params": []
+  },
+  {
+    "name": "captures_match_empty_trailing_segment",
+    "params": []
+  },
+  {
+    "name": "str_reference_deserialize",
+    "params": []
+  },
+  {
+    "name": "two_path_extractors",
+    "params": []
+  },
+  {
+    "name": "deserialize_into_vec_of_tuples",
+    "params": []
+  },
+  {
+    "name": "type_that_uses_deserialize_any",
+    "params": []
+  },
+  {
+    "name": "wrong_number_of_parameters_json",
+    "params": []
+  },
+  {
+    "name": "raw_path_params",
+    "params": []
+  },
+  {
+    "name": "check",
+    "params": [
+      {
+        "name": "uri : impl AsRef < str > . pat",
+        "type": "uri : impl AsRef < str > . ty"
+      },
+      {
+        "name": "value : T . pat",
+        "type": "value : T . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_query",
+    "params": []
+  },
+  {
+    "name": "correct_rejection_status_code",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "_ : Query < Params > . pat",
+        "type": "_ : Query < Params > . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_try_from_uri",
+    "params": []
+  },
+  {
+    "name": "test_try_from_uri_with_invalid_query",
+    "params": []
+  },
+  {
+    "name": "check_query",
+    "params": [
+      {
+        "name": "uri : & str . pat",
+        "type": "uri : & str . ty"
+      },
+      {
+        "name": "value : & [u8] . pat",
+        "type": "value : & [u8] . ty"
+      }
+    ]
+  },
+  {
+    "name": "check_body",
+    "params": [
+      {
+        "name": "body : & 'static [u8] . pat",
+        "type": "body : & 'static [u8] . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_from_query",
+    "params": []
+  },
+  {
+    "name": "test_from_body",
+    "params": []
+  },
+  {
+    "name": "test_incorrect_content_type",
+    "params": []
+  },
+  {
+    "name": "extract_request_parts",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "parts : http :: request :: Parts . pat",
+        "type": "parts : http :: request :: Parts . ty"
+      }
+    ]
+  },
+  {
+    "name": "header_eq",
+    "params": [
+      {
+        "name": "headers : & HeaderMap . pat",
+        "type": "headers : & HeaderMap . ty"
+      },
+      {
+        "name": "key : HeaderName . pat",
+        "type": "key : HeaderName . ty"
+      },
+      {
+        "name": "value : & 'static str . pat",
+        "type": "value : & 'static str . ty"
+      }
+    ]
+  },
+  {
+    "name": "header_contains",
+    "params": [
+      {
+        "name": "headers : & HeaderMap . pat",
+        "type": "headers : & HeaderMap . ty"
+      },
+      {
+        "name": "key : HeaderName . pat",
+        "type": "key : HeaderName . ty"
+      },
+      {
+        "name": "value : & 'static str . pat",
+        "type": "value : & 'static str . ty"
+      }
+    ]
+  },
+  {
+    "name": "sign",
+    "params": [
+      {
+        "name": "key : & [u8] . pat",
+        "type": "key : & [u8] . ty"
+      }
+    ]
+  },
+  {
+    "name": "rejects_http_1_0_requests",
+    "params": []
+  },
+  {
+    "name": "default_on_failed_upgrade",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "ws : WebSocketUpgrade . pat",
+        "type": "ws : WebSocketUpgrade . ty"
+      }
+    ]
+  },
+  {
+    "name": "on_failed_upgrade",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "ws : WebSocketUpgrade . pat",
+        "type": "ws : WebSocketUpgrade . ty"
+      }
+    ]
+  },
+  {
+    "name": "integration_test",
+    "params": []
+  },
+  {
+    "name": "handle_socket",
+    "params": [
+      {
+        "name": "mut socket : WebSocket . pat",
+        "type": "mut socket : WebSocket . ty"
+      }
+    ]
+  },
+  {
+    "name": "check_query",
+    "params": [
+      {
+        "name": "uri : impl AsRef < str > . pat",
+        "type": "uri : impl AsRef < str > . ty"
+      },
+      {
+        "name": "value : T . pat",
+        "type": "value : T . ty"
+      }
+    ]
+  },
+  {
+    "name": "check_body",
+    "params": [
+      {
+        "name": "value : T . pat",
+        "type": "value : T . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_form_query",
+    "params": []
+  },
+  {
+    "name": "test_form_body",
+    "params": []
+  },
+  {
+    "name": "test_incorrect_content_type",
+    "params": []
+  },
+  {
+    "name": "deserialize_error_status_codes",
+    "params": []
+  },
+  {
+    "name": "traits",
+    "params": []
+  },
+  {
+    "name": "handler_into_service",
+    "params": []
+  },
+  {
+    "name": "handle",
+    "params": [
+      {
+        "name": "body : String . pat",
+        "type": "body : String . ty"
+      }
+    ]
+  },
+  {
+    "name": "with_layer_that_changes_request_body_and_state",
+    "params": []
+  },
+  {
+    "name": "handle",
+    "params": [
+      {
+        "name": "State (state) : State < & 'static str > . pat",
+        "type": "State (state) : State < & 'static str > . ty"
+      }
+    ]
+  },
+  {
+    "name": "traits",
+    "params": []
+  },
+  {
+    "name": "json_content_type",
+    "params": [
+      {
+        "name": "headers : & HeaderMap . pat",
+        "type": "headers : & HeaderMap . ty"
+      }
+    ]
+  },
+  {
+    "name": "deserialize_body",
+    "params": []
+  },
+  {
+    "name": "consume_body_to_json_requires_json_content_type",
+    "params": []
+  },
+  {
+    "name": "json_content_types",
+    "params": []
+  },
+  {
+    "name": "valid_json_content_type",
+    "params": [
+      {
+        "name": "content_type : & str . pat",
+        "type": "content_type : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "invalid_json_syntax",
+    "params": []
+  },
+  {
+    "name": "invalid_json_data",
+    "params": []
+  },
+  {
+    "name": "from_extractor",
+    "params": []
+  },
+  {
+    "name": "from_extractor_with_state",
+    "params": [
+      {
+        "name": "state : S . pat",
+        "type": "state : S . ty"
+      }
+    ]
+  },
+  {
+    "name": "traits",
+    "params": []
+  },
+  {
+    "name": "test_from_extractor",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": []
+  },
+  {
+    "name": "works_with_request_body_limit",
+    "params": []
+  },
+  {
+    "name": "from_fn",
+    "params": [
+      {
+        "name": "f : F . pat",
+        "type": "f : F . ty"
+      }
+    ]
+  },
+  {
+    "name": "from_fn_with_state",
+    "params": [
+      {
+        "name": "state : S . pat",
+        "type": "state : S . ty"
+      },
+      {
+        "name": "f : F . pat",
+        "type": "f : F . ty"
+      }
+    ]
+  },
+  {
+    "name": "basic",
+    "params": []
+  },
+  {
+    "name": "insert_header",
+    "params": [
+      {
+        "name": "mut req : Request . pat",
+        "type": "mut req : Request . ty"
+      },
+      {
+        "name": "next : Next . pat",
+        "type": "next : Next . ty"
+      }
+    ]
+  },
+  {
+    "name": "handle",
+    "params": [
+      {
+        "name": "headers : HeaderMap . pat",
+        "type": "headers : HeaderMap . ty"
+      }
+    ]
+  },
+  {
+    "name": "map_request",
+    "params": [
+      {
+        "name": "f : F . pat",
+        "type": "f : F . ty"
+      }
+    ]
+  },
+  {
+    "name": "map_request_with_state",
+    "params": [
+      {
+        "name": "state : S . pat",
+        "type": "state : S . ty"
+      },
+      {
+        "name": "f : F . pat",
+        "type": "f : F . ty"
+      }
+    ]
+  },
+  {
+    "name": "works",
+    "params": []
+  },
+  {
+    "name": "add_header",
+    "params": [
+      {
+        "name": "mut req : Request < B > . pat",
+        "type": "mut req : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "headers : HeaderMap . pat",
+        "type": "headers : HeaderMap . ty"
+      }
+    ]
+  },
+  {
+    "name": "works_for_short_circutting",
+    "params": []
+  },
+  {
+    "name": "add_header",
+    "params": [
+      {
+        "name": "_req : Request < B > . pat",
+        "type": "_req : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "_headers : HeaderMap . pat",
+        "type": "_headers : HeaderMap . ty"
+      }
+    ]
+  },
+  {
+    "name": "map_response",
+    "params": [
+      {
+        "name": "f : F . pat",
+        "type": "f : F . ty"
+      }
+    ]
+  },
+  {
+    "name": "map_response_with_state",
+    "params": [
+      {
+        "name": "state : S . pat",
+        "type": "state : S . ty"
+      },
+      {
+        "name": "f : F . pat",
+        "type": "f : F . ty"
+      }
+    ]
+  },
+  {
+    "name": "works",
+    "params": []
+  },
+  {
+    "name": "add_header",
+    "params": [
+      {
+        "name": "mut res : Response < B > . pat",
+        "type": "mut res : Response < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "impl_trait_result_works",
+    "params": []
+  },
+  {
+    "name": "impl_trait_ok",
+    "params": []
+  },
+  {
+    "name": "impl_trait_err",
+    "params": []
+  },
+  {
+    "name": "impl_trait_both",
+    "params": [
+      {
+        "name": "uri : Uri . pat",
+        "type": "uri : Uri . ty"
+      }
+    ]
+  },
+  {
+    "name": "impl_trait",
+    "params": [
+      {
+        "name": "uri : Uri . pat",
+        "type": "uri : Uri . ty"
+      }
+    ]
+  },
+  {
+    "name": "tuple_responses",
+    "params": []
+  },
+  {
+    "name": "status",
+    "params": []
+  },
+  {
+    "name": "status_headermap",
+    "params": []
+  },
+  {
+    "name": "status_header_array",
+    "params": []
+  },
+  {
+    "name": "status_headermap_body",
+    "params": []
+  },
+  {
+    "name": "status_header_array_body",
+    "params": []
+  },
+  {
+    "name": "status_headermap_impl_into_response",
+    "params": []
+  },
+  {
+    "name": "status_header_array_impl_into_response",
+    "params": []
+  },
+  {
+    "name": "impl_into_response",
+    "params": []
+  },
+  {
+    "name": "status_header_array_extension_body",
+    "params": []
+  },
+  {
+    "name": "status_header_array_extension_mixed_body",
+    "params": []
+  },
+  {
+    "name": "headermap",
+    "params": []
+  },
+  {
+    "name": "header_array",
+    "params": []
+  },
+  {
+    "name": "headermap_body",
+    "params": []
+  },
+  {
+    "name": "header_array_body",
+    "params": []
+  },
+  {
+    "name": "headermap_impl_into_response",
+    "params": []
+  },
+  {
+    "name": "header_array_impl_into_response",
+    "params": []
+  },
+  {
+    "name": "header_array_extension_body",
+    "params": []
+  },
+  {
+    "name": "header_array_extension_mixed_body",
+    "params": []
+  },
+  {
+    "name": "no_content",
+    "params": []
+  },
+  {
+    "name": "memchr_split",
+    "params": [
+      {
+        "name": "needle : u8 . pat",
+        "type": "needle : u8 . ty"
+      },
+      {
+        "name": "haystack : & [u8] . pat",
+        "type": "haystack : & [u8] . ty"
+      }
+    ]
+  },
+  {
+    "name": "leading_space_is_not_stripped",
+    "params": []
+  },
+  {
+    "name": "valid_json_raw_value_chars_stripped",
+    "params": []
+  },
+  {
+    "name": "basic",
+    "params": []
+  },
+  {
+    "name": "keep_alive",
+    "params": []
+  },
+  {
+    "name": "keep_alive_ends_when_the_stream_ends",
+    "params": []
+  },
+  {
+    "name": "parse_event",
+    "params": [
+      {
+        "name": "payload : & str . pat",
+        "type": "payload : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "memchr_splitting",
+    "params": []
+  },
+  {
+    "name": "traits",
+    "params": []
+  },
+  {
+    "name": "from_http_method",
+    "params": []
+  },
+  {
+    "name": "on_service",
+    "params": [
+      {
+        "name": "filter : MethodFilter . pat",
+        "type": "filter : MethodFilter . ty"
+      },
+      {
+        "name": "svc : T . pat",
+        "type": "svc : T . ty"
+      }
+    ]
+  },
+  {
+    "name": "any_service",
+    "params": [
+      {
+        "name": "svc : T . pat",
+        "type": "svc : T . ty"
+      }
+    ]
+  },
+  {
+    "name": "on",
+    "params": [
+      {
+        "name": "filter : MethodFilter . pat",
+        "type": "filter : MethodFilter . ty"
+      },
+      {
+        "name": "handler : H . pat",
+        "type": "handler : H . ty"
+      }
+    ]
+  },
+  {
+    "name": "any",
+    "params": [
+      {
+        "name": "handler : H . pat",
+        "type": "handler : H . ty"
+      }
+    ]
+  },
+  {
+    "name": "set_endpoint",
+    "params": [
+      {
+        "name": "method_name : & str . pat",
+        "type": "method_name : & str . ty"
+      },
+      {
+        "name": "out : & mut MethodEndpoint < S , E > . pat",
+        "type": "out : & mut MethodEndpoint < S , E > . ty"
+      },
+      {
+        "name": "endpoint : & MethodEndpoint < S , E > . pat",
+        "type": "endpoint : & MethodEndpoint < S , E > . ty"
+      },
+      {
+        "name": "endpoint_filter : MethodFilter . pat",
+        "type": "endpoint_filter : MethodFilter . ty"
+      },
+      {
+        "name": "filter : MethodFilter . pat",
+        "type": "filter : MethodFilter . ty"
+      },
+      {
+        "name": "allow_header : & mut AllowHeader . pat",
+        "type": "allow_header : & mut AllowHeader . ty"
+      },
+      {
+        "name": "methods : & [& 'static str] . pat",
+        "type": "methods : & [& 'static str] . ty"
+      }
+    ]
+  },
+  {
+    "name": "merge_inner",
+    "params": [
+      {
+        "name": "path : Option < & str > . pat",
+        "type": "path : Option < & str > . ty"
+      },
+      {
+        "name": "name : & str . pat",
+        "type": "name : & str . ty"
+      },
+      {
+        "name": "first : MethodEndpoint < S , E > . pat",
+        "type": "first : MethodEndpoint < S , E > . ty"
+      },
+      {
+        "name": "second : MethodEndpoint < S , E > . pat",
+        "type": "second : MethodEndpoint < S , E > . ty"
+      }
+    ]
+  },
+  {
+    "name": "append_allow_header",
+    "params": [
+      {
+        "name": "allow_header : & mut AllowHeader . pat",
+        "type": "allow_header : & mut AllowHeader . ty"
+      },
+      {
+        "name": "method : & 'static str . pat",
+        "type": "method : & 'static str . ty"
+      }
+    ]
+  },
+  {
+    "name": "method_not_allowed_by_default",
+    "params": []
+  },
+  {
+    "name": "get_service_fn",
+    "params": []
+  },
+  {
+    "name": "handle",
+    "params": [
+      {
+        "name": "_req : Request . pat",
+        "type": "_req : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "get_handler",
+    "params": []
+  },
+  {
+    "name": "get_accepts_head",
+    "params": []
+  },
+  {
+    "name": "head_takes_precedence_over_get",
+    "params": []
+  },
+  {
+    "name": "merge",
+    "params": []
+  },
+  {
+    "name": "layer",
+    "params": []
+  },
+  {
+    "name": "route_layer",
+    "params": []
+  },
+  {
+    "name": "building_complex_router",
+    "params": []
+  },
+  {
+    "name": "sets_allow_header",
+    "params": []
+  },
+  {
+    "name": "sets_allow_header_get_head",
+    "params": []
+  },
+  {
+    "name": "empty_allow_header_by_default",
+    "params": []
+  },
+  {
+    "name": "allow_header_when_merging",
+    "params": []
+  },
+  {
+    "name": "allow_header_any",
+    "params": []
+  },
+  {
+    "name": "allow_header_with_fallback",
+    "params": []
+  },
+  {
+    "name": "allow_header_with_fallback_that_sets_allow",
+    "params": []
+  },
+  {
+    "name": "fallback",
+    "params": [
+      {
+        "name": "method : Method . pat",
+        "type": "method : Method . ty"
+      }
+    ]
+  },
+  {
+    "name": "allow_header_noop_middleware",
+    "params": []
+  },
+  {
+    "name": "handler_overlaps",
+    "params": []
+  },
+  {
+    "name": "service_overlaps",
+    "params": []
+  },
+  {
+    "name": "get_head_does_not_overlap",
+    "params": []
+  },
+  {
+    "name": "head_get_does_not_overlap",
+    "params": []
+  },
+  {
+    "name": "accessing_state",
+    "params": []
+  },
+  {
+    "name": "fallback_accessing_state",
+    "params": []
+  },
+  {
+    "name": "merge_accessing_state",
+    "params": []
+  },
+  {
+    "name": "call",
+    "params": [
+      {
+        "name": "method : Method . pat",
+        "type": "method : Method . ty"
+      },
+      {
+        "name": "svc : & mut S . pat",
+        "type": "svc : & mut S . ty"
+      }
+    ]
+  },
+  {
+    "name": "ok",
+    "params": []
+  },
+  {
+    "name": "created",
+    "params": []
+  },
+  {
+    "name": "traits",
+    "params": []
+  },
+  {
+    "name": "validate_path",
+    "params": [
+      {
+        "name": "path : & str . pat",
+        "type": "path : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "validate_nest_path",
+    "params": [
+      {
+        "name": "path : & str . pat",
+        "type": "path : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "path_for_nested_route",
+    "params": [
+      {
+        "name": "prefix : & 'a str . pat",
+        "type": "prefix : & 'a str . ty"
+      },
+      {
+        "name": "path : & 'a str . pat",
+        "type": "path : & 'a str . ty"
+      }
+    ]
+  },
+  {
+    "name": "set_allow_header",
+    "params": [
+      {
+        "name": "headers : & mut HeaderMap . pat",
+        "type": "headers : & mut HeaderMap . ty"
+      },
+      {
+        "name": "allow_header : & mut Option < Bytes > . pat",
+        "type": "allow_header : & mut Option < Bytes > . ty"
+      }
+    ]
+  },
+  {
+    "name": "set_content_length",
+    "params": [
+      {
+        "name": "size_hint : http_body :: SizeHint . pat",
+        "type": "size_hint : http_body :: SizeHint . ty"
+      },
+      {
+        "name": "headers : & mut HeaderMap . pat",
+        "type": "headers : & mut HeaderMap . ty"
+      }
+    ]
+  },
+  {
+    "name": "traits",
+    "params": []
+  },
+  {
+    "name": "strip_prefix",
+    "params": [
+      {
+        "name": "uri : & Uri . pat",
+        "type": "uri : & Uri . ty"
+      },
+      {
+        "name": "prefix : & str . pat",
+        "type": "prefix : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "segments",
+    "params": [
+      {
+        "name": "s : & str . pat",
+        "type": "s : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "zip_longest",
+    "params": [
+      {
+        "name": "a : I . pat",
+        "type": "a : I . ty"
+      },
+      {
+        "name": "b : I2 . pat",
+        "type": "b : I2 . ty"
+      }
+    ]
+  },
+  {
+    "name": "does_not_panic",
+    "params": [
+      {
+        "name": "uri_and_prefix : UriAndPrefix . pat",
+        "type": "uri_and_prefix : UriAndPrefix . ty"
+      }
+    ]
+  },
+  {
+    "name": "ascii_alphanumeric",
+    "params": [
+      {
+        "name": "g : & mut quickcheck :: Gen . pat",
+        "type": "g : & mut quickcheck :: Gen . ty"
+      }
+    ]
+  },
+  {
+    "name": "u8_between",
+    "params": [
+      {
+        "name": "lower : u8 . pat",
+        "type": "lower : u8 . ty"
+      },
+      {
+        "name": "upper : u8 . pat",
+        "type": "upper : u8 . ty"
+      },
+      {
+        "name": "g : & mut quickcheck :: Gen . pat",
+        "type": "g : & mut quickcheck :: Gen . ty"
+      }
+    ]
+  },
+  {
+    "name": "basic",
+    "params": []
+  },
+  {
+    "name": "nest",
+    "params": []
+  },
+  {
+    "name": "two",
+    "params": []
+  },
+  {
+    "name": "or",
+    "params": []
+  },
+  {
+    "name": "fallback_accessing_state",
+    "params": []
+  },
+  {
+    "name": "inner_fallback",
+    "params": []
+  },
+  {
+    "name": "outer_fallback",
+    "params": []
+  },
+  {
+    "name": "nested_router_inherits_fallback",
+    "params": []
+  },
+  {
+    "name": "doesnt_inherit_fallback_if_overridden",
+    "params": []
+  },
+  {
+    "name": "deeply_nested_inherit_from_top",
+    "params": []
+  },
+  {
+    "name": "deeply_nested_inherit_from_middle",
+    "params": []
+  },
+  {
+    "name": "with_middleware_on_inner_fallback",
+    "params": []
+  },
+  {
+    "name": "never_called",
+    "params": [
+      {
+        "name": "_ : Request < B > . pat",
+        "type": "_ : Request < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "also_inherits_default_layered_fallback",
+    "params": []
+  },
+  {
+    "name": "set_header",
+    "params": [
+      {
+        "name": "mut res : Response < B > . pat",
+        "type": "mut res : Response < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "nest_fallback_on_inner",
+    "params": []
+  },
+  {
+    "name": "doesnt_panic_if_used_with_nested_router",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": []
+  },
+  {
+    "name": "issue_2072",
+    "params": []
+  },
+  {
+    "name": "issue_2072_outer_fallback_before_merge",
+    "params": []
+  },
+  {
+    "name": "issue_2072_outer_fallback_after_merge",
+    "params": []
+  },
+  {
+    "name": "merge_router_with_fallback_into_nested_router_with_fallback",
+    "params": []
+  },
+  {
+    "name": "merging_nested_router_with_fallback_into_router_with_fallback",
+    "params": []
+  },
+  {
+    "name": "merge_empty_into_router_with_fallback",
+    "params": []
+  },
+  {
+    "name": "merge_router_with_fallback_into_empty",
+    "params": []
+  },
+  {
+    "name": "mna_fallback_with_existing_fallback",
+    "params": []
+  },
+  {
+    "name": "mna_fallback_with_state",
+    "params": []
+  },
+  {
+    "name": "mna_fallback_with_unused_state",
+    "params": []
+  },
+  {
+    "name": "state_isnt_cloned_too_much_with_fallback",
+    "params": []
+  },
+  {
+    "name": "get_handles_head",
+    "params": []
+  },
+  {
+    "name": "get_handles_head",
+    "params": []
+  },
+  {
+    "name": "unit",
+    "params": []
+  },
+  {
+    "name": "forever",
+    "params": []
+  },
+  {
+    "name": "timeout",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": []
+  },
+  {
+    "name": "handler_multiple_methods_first",
+    "params": []
+  },
+  {
+    "name": "handler_multiple_methods_middle",
+    "params": []
+  },
+  {
+    "name": "handler_multiple_methods_last",
+    "params": []
+  },
+  {
+    "name": "handler_service_ext",
+    "params": []
+  },
+  {
+    "name": "basic",
+    "params": []
+  },
+  {
+    "name": "multiple_ors_balanced_differently",
+    "params": []
+  },
+  {
+    "name": "test",
+    "params": [
+      {
+        "name": "name : & str . pat",
+        "type": "name : & str . ty"
+      },
+      {
+        "name": "app : Router . pat",
+        "type": "app : Router . ty"
+      }
+    ]
+  },
+  {
+    "name": "nested_or",
+    "params": []
+  },
+  {
+    "name": "or_with_route_following",
+    "params": []
+  },
+  {
+    "name": "layer",
+    "params": []
+  },
+  {
+    "name": "layer_and_handle_error",
+    "params": []
+  },
+  {
+    "name": "nesting",
+    "params": []
+  },
+  {
+    "name": "boxed",
+    "params": []
+  },
+  {
+    "name": "many_ors",
+    "params": []
+  },
+  {
+    "name": "services",
+    "params": []
+  },
+  {
+    "name": "all_the_uris",
+    "params": [
+      {
+        "name": "uri : Uri . pat",
+        "type": "uri : Uri . ty"
+      },
+      {
+        "name": "OriginalUri (original_uri) : OriginalUri . pat",
+        "type": "OriginalUri (original_uri) : OriginalUri . ty"
+      },
+      {
+        "name": "req : Request . pat",
+        "type": "req : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "nesting_and_seeing_the_right_uri",
+    "params": []
+  },
+  {
+    "name": "nesting_and_seeing_the_right_uri_at_more_levels_of_nesting",
+    "params": []
+  },
+  {
+    "name": "nesting_and_seeing_the_right_uri_ors_with_nesting",
+    "params": []
+  },
+  {
+    "name": "nesting_and_seeing_the_right_uri_ors_with_multi_segment_uris",
+    "params": []
+  },
+  {
+    "name": "middleware_that_return_early",
+    "params": []
+  },
+  {
+    "name": "hello_world",
+    "params": []
+  },
+  {
+    "name": "root",
+    "params": [
+      {
+        "name": "_ : Request . pat",
+        "type": "_ : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "foo",
+    "params": [
+      {
+        "name": "_ : Request . pat",
+        "type": "_ : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "users_create",
+    "params": [
+      {
+        "name": "_ : Request . pat",
+        "type": "_ : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "routing",
+    "params": []
+  },
+  {
+    "name": "router_type_doesnt_change",
+    "params": []
+  },
+  {
+    "name": "routing_between_services",
+    "params": []
+  },
+  {
+    "name": "handle",
+    "params": [
+      {
+        "name": "_ : Request . pat",
+        "type": "_ : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "middleware_on_single_route",
+    "params": []
+  },
+  {
+    "name": "handle",
+    "params": [
+      {
+        "name": "_ : Request . pat",
+        "type": "_ : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "service_in_bottom",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "_req : Request . pat",
+        "type": "_req : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "wrong_method_handler",
+    "params": []
+  },
+  {
+    "name": "wrong_method_service",
+    "params": []
+  },
+  {
+    "name": "multiple_methods_for_one_handler",
+    "params": []
+  },
+  {
+    "name": "root",
+    "params": [
+      {
+        "name": "_ : Request . pat",
+        "type": "_ : Request . ty"
+      }
+    ]
+  },
+  {
+    "name": "wildcard_sees_whole_url",
+    "params": []
+  },
+  {
+    "name": "middleware_applies_to_routes_above",
+    "params": []
+  },
+  {
+    "name": "not_found_for_extra_trailing_slash",
+    "params": []
+  },
+  {
+    "name": "not_found_for_missing_trailing_slash",
+    "params": []
+  },
+  {
+    "name": "with_and_without_trailing_slash",
+    "params": []
+  },
+  {
+    "name": "wildcard_doesnt_match_just_trailing_slash",
+    "params": []
+  },
+  {
+    "name": "what_matches_wildcard",
+    "params": []
+  },
+  {
+    "name": "static_and_dynamic_paths",
+    "params": []
+  },
+  {
+    "name": "empty_route",
+    "params": []
+  },
+  {
+    "name": "middleware_still_run_for_unmatched_requests",
+    "params": []
+  },
+  {
+    "name": "routing_to_router_panics",
+    "params": []
+  },
+  {
+    "name": "route_layer",
+    "params": []
+  },
+  {
+    "name": "different_methods_added_in_different_routes",
+    "params": []
+  },
+  {
+    "name": "merging_routers_with_fallbacks_panics",
+    "params": []
+  },
+  {
+    "name": "fallback",
+    "params": []
+  },
+  {
+    "name": "routes_with_overlapping_method_routes",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": []
+  },
+  {
+    "name": "merging_with_overlapping_method_routes",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": []
+  },
+  {
+    "name": "merging_routers_with_same_paths_but_different_methods",
+    "params": []
+  },
+  {
+    "name": "head_content_length_through_hyper_server",
+    "params": []
+  },
+  {
+    "name": "head_content_length_through_hyper_server_that_hits_fallback",
+    "params": []
+  },
+  {
+    "name": "head_with_middleware_applied",
+    "params": []
+  },
+  {
+    "name": "routes_must_start_with_slash",
+    "params": []
+  },
+  {
+    "name": "body_limited_by_default",
+    "params": []
+  },
+  {
+    "name": "disabling_the_default_limit",
+    "params": []
+  },
+  {
+    "name": "limited_body_with_content_length",
+    "params": []
+  },
+  {
+    "name": "changing_the_default_limit",
+    "params": []
+  },
+  {
+    "name": "changing_the_default_limit_differently_on_different_routes",
+    "params": []
+  },
+  {
+    "name": "limited_body_with_streaming_body",
+    "params": []
+  },
+  {
+    "name": "extract_state",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "State (outer) : State < AppState > . pat",
+        "type": "State (outer) : State < AppState > . ty"
+      },
+      {
+        "name": "State (inner) : State < InnerState > . pat",
+        "type": "State (inner) : State < InnerState > . ty"
+      }
+    ]
+  },
+  {
+    "name": "explicitly_set_state",
+    "params": []
+  },
+  {
+    "name": "layer_response_into_response",
+    "params": []
+  },
+  {
+    "name": "map_response",
+    "params": [
+      {
+        "name": "_res : Response < B > . pat",
+        "type": "_res : Response < B > . ty"
+      }
+    ]
+  },
+  {
+    "name": "method_router_fallback_with_state",
+    "params": []
+  },
+  {
+    "name": "fallback",
+    "params": [
+      {
+        "name": "_ : State < & 'static str > . pat",
+        "type": "_ : State < & 'static str > . ty"
+      }
+    ]
+  },
+  {
+    "name": "not_found",
+    "params": [
+      {
+        "name": "_ : State < & 'static str > . pat",
+        "type": "_ : State < & 'static str > . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_path_for_nested_route",
+    "params": []
+  },
+  {
+    "name": "state_isnt_cloned_too_much",
+    "params": []
+  },
+  {
+    "name": "state_isnt_cloned_too_much_in_layer",
+    "params": []
+  },
+  {
+    "name": "layer",
+    "params": [
+      {
+        "name": "State (_) : State < CountingCloneableState > . pat",
+        "type": "State (_) : State < CountingCloneableState > . ty"
+      },
+      {
+        "name": "req : Request . pat",
+        "type": "req : Request . ty"
+      },
+      {
+        "name": "next : Next . pat",
+        "type": "next : Next . ty"
+      }
+    ]
+  },
+  {
+    "name": "logging_rejections",
+    "params": []
+  },
+  {
+    "name": "connect_going_to_custom_fallback",
+    "params": []
+  },
+  {
+    "name": "connect_going_to_default_fallback",
+    "params": []
+  },
+  {
+    "name": "impl_handler_for_into_response",
+    "params": []
+  },
+  {
+    "name": "locks_mutex_very_little",
+    "params": []
+  },
+  {
+    "name": "middleware_adding_body",
+    "params": []
+  },
+  {
+    "name": "nesting_apps",
+    "params": []
+  },
+  {
+    "name": "wrong_method_nest",
+    "params": []
+  },
+  {
+    "name": "nesting_router_at_root",
+    "params": []
+  },
+  {
+    "name": "nesting_router_at_empty_path",
+    "params": []
+  },
+  {
+    "name": "nesting_handler_at_root",
+    "params": []
+  },
+  {
+    "name": "nested_url_extractor",
+    "params": []
+  },
+  {
+    "name": "nested_url_original_extractor",
+    "params": []
+  },
+  {
+    "name": "nested_service_sees_stripped_uri",
+    "params": []
+  },
+  {
+    "name": "nest_static_file_server",
+    "params": []
+  },
+  {
+    "name": "nested_multiple_routes",
+    "params": []
+  },
+  {
+    "name": "nested_service_at_root_with_other_routes",
+    "params": []
+  },
+  {
+    "name": "nested_at_root_with_other_routes",
+    "params": []
+  },
+  {
+    "name": "multiple_top_level_nests",
+    "params": []
+  },
+  {
+    "name": "nest_cannot_contain_wildcards",
+    "params": []
+  },
+  {
+    "name": "outer_middleware_still_see_whole_url",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": [
+      {
+        "name": "Extension (Uri (middleware_uri)) : Extension < Uri > . pat",
+        "type": "Extension (Uri (middleware_uri)) : Extension < Uri > . ty"
+      }
+    ]
+  },
+  {
+    "name": "nest_at_capture",
+    "params": []
+  },
+  {
+    "name": "nest_with_and_without_trailing",
+    "params": []
+  },
+  {
+    "name": "nesting_with_root_inner_router",
+    "params": []
+  },
+  {
+    "name": "insert_url_params",
+    "params": [
+      {
+        "name": "extensions : & mut Extensions . pat",
+        "type": "extensions : & mut Extensions . ty"
+      },
+      {
+        "name": "params : Params . pat",
+        "type": "params : Params . ty"
+      }
+    ]
+  },
+  {
+    "name": "serve",
+    "params": [
+      {
+        "name": "tcp_listener : TcpListener . pat",
+        "type": "tcp_listener : TcpListener . ty"
+      },
+      {
+        "name": "make_service : M . pat",
+        "type": "make_service : M . ty"
+      }
+    ]
+  },
+  {
+    "name": "is_connection_error",
+    "params": [
+      {
+        "name": "e : & io :: Error . pat",
+        "type": "e : & io :: Error . ty"
+      }
+    ]
+  },
+  {
+    "name": "tcp_accept",
+    "params": [
+      {
+        "name": "listener : & TcpListener . pat",
+        "type": "listener : & TcpListener . ty"
+      }
+    ]
+  },
+  {
+    "name": "if_it_compiles_it_works",
+    "params": []
+  },
+  {
+    "name": "handler",
+    "params": []
+  },
+  {
+    "name": "test_serve_local_addr",
+    "params": []
+  },
+  {
+    "name": "test_with_graceful_shutdown_local_addr",
+    "params": []
+  },
+  {
+    "name": "assert_send",
+    "params": []
+  },
+  {
+    "name": "assert_sync",
+    "params": []
+  },
+  {
+    "name": "spawn_service",
+    "params": [
+      {
+        "name": "svc : S . pat",
+        "type": "svc : S . ty"
+      }
+    ]
+  },
+  {
+    "name": "capture_tracing",
+    "params": [
+      {
+        "name": "f : F . pat",
+        "type": "f : F . ty"
+      }
+    ]
+  },
+  {
+    "name": "try_downcast",
+    "params": [
+      {
+        "name": "k : K . pat",
+        "type": "k : K . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_try_downcast",
+    "params": []
+  },
+  {
+    "name": "mutex_num_locked",
+    "params": [
+      {
+        "name": "f : F . pat",
+        "type": "f : F . ty"
+      }
+    ]
+  }
+]

@@ -60,21 +60,38 @@ Open http://localhost:9000, browse the API menu at /api/pandas, /api/numpy, /api
 
 Go calls pandas. Rust calls numpy. Frontend calls LangChain. Any language, HTTP everything.
 
-## Eat Everything to Http
+## Eat Everything to HTTP
 
 | Language | Status | Engine |
 |----------|--------|--------|
 | Python | ✅ Eaten | [aicp-eat](https://github.com/woozheng/aicp-eat) |
-| Go | ✅ Eaten | [go/](./go/) | gin, gorm, mux, uuid, logrus |
-| Rust | 🪑 Feed AI | Drop the protocol. AI writes it. |
+| Go | ✅ Eaten | [go/](./go/) |
+| Rust | ✅ Eaten | [rust/](./rust/) |
 | JavaScript | 🪑 Feed AI | Drop the protocol. AI writes it. |
 | Java | 🪑 Feed AI | Drop the protocol. AI writes it. |
 | Zig | 🪑 Feed AI | Drop the protocol. AI writes it. |
 | ... | 🪑 Feed AI | You get it. |
 
-**Feed the protocol to AI. 30 seconds. Engine done. Go eat.**
+**Same protocol. Same call.**
 
-##  AI reads help(). AI orchestrates. 80 lines engine.AI-Generated Experiments 
+```bash
+# Python
+curl localhost:9000/api/numpy -d '{"meta":{"function":"std"},"payload":{"args":{"a":[1,2,3,4,5]}}}'
+
+# Go
+curl localhost:9000/api/github_com_gin-gonic_gin -d '{"meta":{"function":"Mode"},"payload":{"args":{}}}'
+
+# Rust
+curl localhost:9000/api/serde -d '{"meta":{"function":"main"},"payload":{"args":{}}}'
+
+
+```
+AI reads the protocol. AI writes the engine. AI writes the eater. AI generates everything.
+
+80 lines. 3 atoms. Any language.
+
+## AI-Generated Experiments 
+
 
 AI read the AICP protocol and generated complete systems across seven domains. Each from a single human sentence.
 

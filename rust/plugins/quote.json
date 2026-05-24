@@ -1,0 +1,469 @@
+[
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "rustc_minor_version",
+    "params": []
+  },
+  {
+    "name": "do_append_all",
+    "params": [
+      {
+        "name": "stream : & mut TokenStream . pat",
+        "type": "stream : & mut TokenStream . ty"
+      },
+      {
+        "name": "iter : I . pat",
+        "type": "iter : I . ty"
+      }
+    ]
+  },
+  {
+    "name": "do_append_separated",
+    "params": [
+      {
+        "name": "stream : & mut TokenStream . pat",
+        "type": "stream : & mut TokenStream . ty"
+      },
+      {
+        "name": "iter : I . pat",
+        "type": "iter : I . ty"
+      },
+      {
+        "name": "op : U . pat",
+        "type": "op : U . ty"
+      }
+    ]
+  },
+  {
+    "name": "do_append_terminated",
+    "params": [
+      {
+        "name": "stream : & mut TokenStream . pat",
+        "type": "stream : & mut TokenStream . ty"
+      },
+      {
+        "name": "iter : I . pat",
+        "type": "iter : I . ty"
+      },
+      {
+        "name": "term : U . pat",
+        "type": "term : U . ty"
+      }
+    ]
+  },
+  {
+    "name": "get_span",
+    "params": [
+      {
+        "name": "span : T . pat",
+        "type": "span : T . ty"
+      }
+    ]
+  },
+  {
+    "name": "push_group",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "delimiter : Delimiter . pat",
+        "type": "delimiter : Delimiter . ty"
+      },
+      {
+        "name": "inner : TokenStream . pat",
+        "type": "inner : TokenStream . ty"
+      }
+    ]
+  },
+  {
+    "name": "push_group_spanned",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "span : Span . pat",
+        "type": "span : Span . ty"
+      },
+      {
+        "name": "delimiter : Delimiter . pat",
+        "type": "delimiter : Delimiter . ty"
+      },
+      {
+        "name": "inner : TokenStream . pat",
+        "type": "inner : TokenStream . ty"
+      }
+    ]
+  },
+  {
+    "name": "parse",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "s : & str . pat",
+        "type": "s : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "parse_spanned",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "span : Span . pat",
+        "type": "span : Span . ty"
+      },
+      {
+        "name": "s : & str . pat",
+        "type": "s : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "respan_token_tree",
+    "params": [
+      {
+        "name": "mut token : TokenTree . pat",
+        "type": "mut token : TokenTree . ty"
+      },
+      {
+        "name": "span : Span . pat",
+        "type": "span : Span . ty"
+      }
+    ]
+  },
+  {
+    "name": "push_ident",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "s : & str . pat",
+        "type": "s : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "push_ident_spanned",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "span : Span . pat",
+        "type": "span : Span . ty"
+      },
+      {
+        "name": "s : & str . pat",
+        "type": "s : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "push_lifetime",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "lifetime : & str . pat",
+        "type": "lifetime : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "push_lifetime_spanned",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "span : Span . pat",
+        "type": "span : Span . ty"
+      },
+      {
+        "name": "lifetime : & str . pat",
+        "type": "lifetime : & str . ty"
+      }
+    ]
+  },
+  {
+    "name": "push_underscore",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      }
+    ]
+  },
+  {
+    "name": "push_underscore_spanned",
+    "params": [
+      {
+        "name": "tokens : & mut TokenStream . pat",
+        "type": "tokens : & mut TokenStream . ty"
+      },
+      {
+        "name": "span : Span . pat",
+        "type": "span : Span . ty"
+      }
+    ]
+  },
+  {
+    "name": "mk_ident",
+    "params": [
+      {
+        "name": "id : & str . pat",
+        "type": "id : & str . ty"
+      },
+      {
+        "name": "span : Option < Span > . pat",
+        "type": "span : Option < Span > . ty"
+      }
+    ]
+  },
+  {
+    "name": "ident_maybe_raw",
+    "params": [
+      {
+        "name": "id : & str . pat",
+        "type": "id : & str . ty"
+      },
+      {
+        "name": "span : Span . pat",
+        "type": "span : Span . ty"
+      }
+    ]
+  },
+  {
+    "name": "join_spans",
+    "params": [
+      {
+        "name": "tokens : TokenStream . pat",
+        "type": "tokens : TokenStream . ty"
+      }
+    ]
+  },
+  {
+    "name": "ui",
+    "params": []
+  },
+  {
+    "name": "test_quote_impl",
+    "params": []
+  },
+  {
+    "name": "test_quote_spanned_impl",
+    "params": []
+  },
+  {
+    "name": "test_substitution",
+    "params": []
+  },
+  {
+    "name": "test_iter",
+    "params": []
+  },
+  {
+    "name": "test_array",
+    "params": []
+  },
+  {
+    "name": "test_advanced",
+    "params": []
+  },
+  {
+    "name": "test_integer",
+    "params": []
+  },
+  {
+    "name": "test_floating",
+    "params": []
+  },
+  {
+    "name": "test_char",
+    "params": []
+  },
+  {
+    "name": "test_str",
+    "params": []
+  },
+  {
+    "name": "test_string",
+    "params": []
+  },
+  {
+    "name": "test_c_str",
+    "params": []
+  },
+  {
+    "name": "test_c_string",
+    "params": []
+  },
+  {
+    "name": "test_interpolated_literal",
+    "params": []
+  },
+  {
+    "name": "test_ident",
+    "params": []
+  },
+  {
+    "name": "test_underscore",
+    "params": []
+  },
+  {
+    "name": "test_duplicate",
+    "params": []
+  },
+  {
+    "name": "test_fancy_repetition",
+    "params": []
+  },
+  {
+    "name": "test_nested_fancy_repetition",
+    "params": []
+  },
+  {
+    "name": "test_duplicate_name_repetition",
+    "params": []
+  },
+  {
+    "name": "test_duplicate_name_repetition_no_copy",
+    "params": []
+  },
+  {
+    "name": "test_btreeset_repetition",
+    "params": []
+  },
+  {
+    "name": "test_variable_name_conflict",
+    "params": []
+  },
+  {
+    "name": "test_nonrep_in_repetition",
+    "params": []
+  },
+  {
+    "name": "test_empty_quote",
+    "params": []
+  },
+  {
+    "name": "test_box_str",
+    "params": []
+  },
+  {
+    "name": "test_cow",
+    "params": []
+  },
+  {
+    "name": "test_closure",
+    "params": []
+  },
+  {
+    "name": "field_i",
+    "params": [
+      {
+        "name": "i : usize . pat",
+        "type": "i : usize . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_append_tokens",
+    "params": []
+  },
+  {
+    "name": "test_format_ident",
+    "params": []
+  },
+  {
+    "name": "test_format_ident_strip_raw",
+    "params": []
+  },
+  {
+    "name": "test_outer_line_comment",
+    "params": []
+  },
+  {
+    "name": "test_inner_line_comment",
+    "params": []
+  },
+  {
+    "name": "test_outer_block_comment",
+    "params": []
+  },
+  {
+    "name": "test_inner_block_comment",
+    "params": []
+  },
+  {
+    "name": "test_outer_attr",
+    "params": []
+  },
+  {
+    "name": "test_inner_attr",
+    "params": []
+  },
+  {
+    "name": "test_star_after_repetition",
+    "params": []
+  },
+  {
+    "name": "test_quote_raw_id",
+    "params": []
+  },
+  {
+    "name": "test_quote_raw_lifetime",
+    "params": []
+  },
+  {
+    "name": "test_type_inference_for_span",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  }
+]

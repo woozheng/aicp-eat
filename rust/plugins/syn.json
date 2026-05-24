@@ -1,0 +1,469 @@
+[
+  {
+    "name": "try_parse",
+    "params": [
+      {
+        "name": "input : ParseStream . pat",
+        "type": "input : ParseStream . ty"
+      }
+    ]
+  },
+  {
+    "name": "error",
+    "params": []
+  },
+  {
+    "name": "has_bound",
+    "params": [
+      {
+        "name": "supertraits : & Supertraits . pat",
+        "type": "supertraits : & Supertraits . ty"
+      },
+      {
+        "name": "bound : & InferredBound . pat",
+        "type": "bound : & InferredBound . ty"
+      }
+    ]
+  },
+  {
+    "name": "expand",
+    "params": [
+      {
+        "name": "input : & mut Item . pat",
+        "type": "input : & mut Item . ty"
+      },
+      {
+        "name": "is_local : bool . pat",
+        "type": "is_local : bool . ty"
+      }
+    ]
+  },
+  {
+    "name": "lint_suppress_with_body",
+    "params": []
+  },
+  {
+    "name": "lint_suppress_without_body",
+    "params": []
+  },
+  {
+    "name": "transform_sig",
+    "params": [
+      {
+        "name": "context : Context . pat",
+        "type": "context : Context . ty"
+      },
+      {
+        "name": "sig : & mut Signature . pat",
+        "type": "sig : & mut Signature . ty"
+      },
+      {
+        "name": "has_self : bool . pat",
+        "type": "has_self : bool . ty"
+      },
+      {
+        "name": "has_default : bool . pat",
+        "type": "has_default : bool . ty"
+      },
+      {
+        "name": "is_local : bool . pat",
+        "type": "is_local : bool . ty"
+      }
+    ]
+  },
+  {
+    "name": "transform_block",
+    "params": [
+      {
+        "name": "context : Context . pat",
+        "type": "context : Context . ty"
+      },
+      {
+        "name": "sig : & mut Signature . pat",
+        "type": "sig : & mut Signature . ty"
+      },
+      {
+        "name": "block : & mut Block . pat",
+        "type": "block : & mut Block . ty"
+      }
+    ]
+  },
+  {
+    "name": "positional_arg",
+    "params": [
+      {
+        "name": "i : usize . pat",
+        "type": "i : usize . ty"
+      },
+      {
+        "name": "pat : & Pat . pat",
+        "type": "pat : & Pat . ty"
+      }
+    ]
+  },
+  {
+    "name": "contains_associated_type_impl_trait",
+    "params": [
+      {
+        "name": "context : Context . pat",
+        "type": "context : Context . ty"
+      },
+      {
+        "name": "ret : & mut Type . pat",
+        "type": "ret : & mut Type . ty"
+      }
+    ]
+  },
+  {
+    "name": "where_clause_or_default",
+    "params": [
+      {
+        "name": "clause : & mut Option < WhereClause > . pat",
+        "type": "clause : & mut Option < WhereClause > . ty"
+      }
+    ]
+  },
+  {
+    "name": "replace_impl_trait_with_infer",
+    "params": [
+      {
+        "name": "ty : & mut Type . pat",
+        "type": "ty : & mut Type . ty"
+      }
+    ]
+  },
+  {
+    "name": "async_trait",
+    "params": [
+      {
+        "name": "args : TokenStream . pat",
+        "type": "args : TokenStream . ty"
+      },
+      {
+        "name": "input : TokenStream . pat",
+        "type": "input : TokenStream . ty"
+      }
+    ]
+  },
+  {
+    "name": "parenthesize_impl_trait",
+    "params": [
+      {
+        "name": "elem : & mut Type . pat",
+        "type": "elem : & mut Type . ty"
+      },
+      {
+        "name": "paren_span : Span . pat",
+        "type": "paren_span : Span . ty"
+      }
+    ]
+  },
+  {
+    "name": "has_self_in_sig",
+    "params": [
+      {
+        "name": "sig : & mut Signature . pat",
+        "type": "sig : & mut Signature . ty"
+      }
+    ]
+  },
+  {
+    "name": "has_self_in_block",
+    "params": [
+      {
+        "name": "block : & mut Block . pat",
+        "type": "block : & mut Block . ty"
+      }
+    ]
+  },
+  {
+    "name": "has_self_in_token_stream",
+    "params": [
+      {
+        "name": "tokens : TokenStream . pat",
+        "type": "tokens : TokenStream . ty"
+      }
+    ]
+  },
+  {
+    "name": "mut_pat",
+    "params": [
+      {
+        "name": "pat : & mut Pat . pat",
+        "type": "pat : & mut Pat . ty"
+      }
+    ]
+  },
+  {
+    "name": "contains_fn",
+    "params": [
+      {
+        "name": "tokens : TokenStream . pat",
+        "type": "tokens : TokenStream . ty"
+      }
+    ]
+  },
+  {
+    "name": "prepend_underscore_to_self",
+    "params": [
+      {
+        "name": "ident : & mut Ident . pat",
+        "type": "ident : & mut Ident . ty"
+      }
+    ]
+  },
+  {
+    "name": "visit_token_stream_impl",
+    "params": [
+      {
+        "name": "visitor : & mut ReplaceSelf . pat",
+        "type": "visitor : & mut ReplaceSelf . ty"
+      },
+      {
+        "name": "tokens : TokenStream . pat",
+        "type": "tokens : TokenStream . ty"
+      },
+      {
+        "name": "modified : & mut bool . pat",
+        "type": "modified : & mut bool . ty"
+      },
+      {
+        "name": "out : & mut Vec < TokenTree > . pat",
+        "type": "out : & mut Vec < TokenTree > . ty"
+      }
+    ]
+  },
+  {
+    "name": "ui",
+    "params": []
+  },
+  {
+    "name": "block_on_simple",
+    "params": [
+      {
+        "name": "mut fut : F . pat",
+        "type": "mut fut : F . ty"
+      }
+    ]
+  },
+  {
+    "name": "clone",
+    "params": [
+      {
+        "name": "_null : * const () . pat",
+        "type": "_null : * const () . ty"
+      }
+    ]
+  },
+  {
+    "name": "wake",
+    "params": [
+      {
+        "name": "_null : * const () . pat",
+        "type": "_null : * const () . ty"
+      }
+    ]
+  },
+  {
+    "name": "wake_by_ref",
+    "params": [
+      {
+        "name": "_null : * const () . pat",
+        "type": "_null : * const () . ty"
+      }
+    ]
+  },
+  {
+    "name": "drop",
+    "params": [
+      {
+        "name": "_null : * const () . pat",
+        "type": "_null : * const () . ty"
+      }
+    ]
+  },
+  {
+    "name": "test",
+    "params": []
+  },
+  {
+    "name": "test_dyn_compatible_without_default",
+    "params": []
+  },
+  {
+    "name": "test_dyn_compatible_with_default",
+    "params": []
+  },
+  {
+    "name": "test_dyn_compatible_no_send",
+    "params": []
+  },
+  {
+    "name": "test_can_destruct",
+    "params": []
+  },
+  {
+    "name": "test_self_in_macro",
+    "params": []
+  },
+  {
+    "name": "test_inference",
+    "params": []
+  },
+  {
+    "name": "test_internal_items",
+    "params": []
+  },
+  {
+    "name": "test_unimplemented",
+    "params": []
+  },
+  {
+    "name": "do_something",
+    "params": [
+      {
+        "name": "_ : & mut T . pat",
+        "type": "_ : & mut T . ty"
+      }
+    ]
+  },
+  {
+    "name": "test",
+    "params": []
+  },
+  {
+    "name": "tracing",
+    "params": []
+  },
+  {
+    "name": "test",
+    "params": []
+  },
+  {
+    "name": "standalone",
+    "params": [
+      {
+        "name": "_ : Flagger < '_ > . pat",
+        "type": "_ : Flagger < '_ > . ty"
+      },
+      {
+        "name": "flag : & AtomicBool . pat",
+        "type": "flag : & AtomicBool . ty"
+      }
+    ]
+  },
+  {
+    "name": "test_drop_order",
+    "params": []
+  },
+  {
+    "name": "ok",
+    "params": []
+  },
+  {
+    "name": "f",
+    "params": []
+  },
+  {
+    "name": "test",
+    "params": [
+      {
+        "name": "_t : & dyn Trait . pat",
+        "type": "_t : & dyn Trait . ty"
+      }
+    ]
+  },
+  {
+    "name": "test",
+    "params": []
+  },
+  {
+    "name": "async_fn",
+    "params": []
+  },
+  {
+    "name": "impl_future_fn",
+    "params": []
+  },
+  {
+    "name": "g",
+    "params": [
+      {
+        "name": "_ : & mut & () . pat",
+        "type": "_ : & mut & () . ty"
+      }
+    ]
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "f",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "f",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  },
+  {
+    "name": "main",
+    "params": []
+  }
+]

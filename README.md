@@ -88,8 +88,6 @@ AI reads the protocol. AI writes the engine. AI writes the eater. AI generates e
 80 lines. 3 atoms. Any language.
 
 ## AI-Generated Experiments 
-
-
 AI read the AICP protocol and generated complete systems across seven domains. Each from a single human sentence.
 
 > **Want to generate systems like these? → [Start here](https://github.com/woozheng/aicp)**

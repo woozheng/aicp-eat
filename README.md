@@ -67,9 +67,6 @@ Go calls pandas. Rust calls numpy. Frontend calls LangChain. Any language, HTTP 
 | Python | ✅ Eaten | [aicp-eat](https://github.com/woozheng/aicp-eat) |
 | Go | ✅ Eaten | [go/](./go/) |
 | Rust | ✅ Eaten | [rust/](./rust/) |
-| JavaScript | 🪑 Feed AI | Drop the protocol. AI writes it. |
-| Java | 🪑 Feed AI | Drop the protocol. AI writes it. |
-| Zig | 🪑 Feed AI | Drop the protocol. AI writes it. |
 | ... | 🪑 Feed AI | You get it. |
 
 **Same protocol. Same call.**
@@ -91,8 +88,6 @@ AI reads the protocol. AI writes the engine. AI writes the eater. AI generates e
 80 lines. 3 atoms. Any language.
 
 ## AI-Generated Experiments 
-
-
 AI read the AICP protocol and generated complete systems across seven domains. Each from a single human sentence.
 
 > **Want to generate systems like these? → [Start here](https://github.com/woozheng/aicp)**
